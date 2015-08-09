@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.smartrobot.android.RobotActivity;
 
-public class MainActivity extends Activity {
+
+public class MainActivity extends RobotActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
