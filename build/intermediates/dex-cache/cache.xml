@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/whee6409/AndroidStudioProjects/JachwiBot/app/build/intermediates/exploded-aar/JachwiBot/orgsmartrobotandroid8140/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1c5323f2cce6a42c807c5ac32c4ce1a549f605c6">
+        <dex dex="/home/whee6409/AndroidStudioProjects/JachwiBot/app/build/intermediates/pre-dexed/debug/classes-e8d3ac333bcc65a08c1d366c2737cfa0fa9adfc4.jar" />
+    </item>
+
+</items>

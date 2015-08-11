@@ -1,19 +1,32 @@
 package com.soma.albert.jachwibot;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import org.smartrobot.android.RobotActivity;
 
 
-public class MainActivity extends RobotActivity {
+public class MainActivity extends RobotActivity implements View.OnClickListener{
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.albertConnectBtn) {
+            Intent serviceIntent = new Intent(this, LuncherService.class);
+            startService(serviceIntent);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button albertConnectBtn = (Button) findViewById(R.id.albertConnectBtn);
+        albertConnectBtn.setOnClickListener(this);
     }
 
     @Override
