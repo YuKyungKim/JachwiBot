@@ -7,30 +7,24 @@ The following files were *not* copied into the new Gradle project; you
 should evaluate whether these are still needed in your project and if
 so manually move them:
 
-* proguard-project.txt
+* .gitignore
+* INSTALL
+* LICENSE
+* README
+* TODO
+* build.xml
+* default.properties
+* proguard.cfg
 
 Moved Files:
 ------------
 Android Gradle projects use a different directory structure than ADT
 Eclipse projects. Here's how the projects were restructured:
 
-* AndroidManifest.xml => orgsmartrobotandroid8140/src/main/AndroidManifest.xml
-* libs/armeabi-v7a/libalbert.so => orgsmartrobotandroid8140/src/main/jniLibs/armeabi-v7a/libalbert.so
-* libs/armeabi-v7a/libalbertpop.so => orgsmartrobotandroid8140/src/main/jniLibs/armeabi-v7a/libalbertpop.so
-* libs/armeabi-v7a/libalpha.so => orgsmartrobotandroid8140/src/main/jniLibs/armeabi-v7a/libalpha.so
-* libs/armeabi-v7a/libdice.so => orgsmartrobotandroid8140/src/main/jniLibs/armeabi-v7a/libdice.so
-* libs/armeabi-v7a/libpen.so => orgsmartrobotandroid8140/src/main/jniLibs/armeabi-v7a/libpen.so
-* libs/armeabi/libalbert.so => orgsmartrobotandroid8140/src/main/jniLibs/armeabi/libalbert.so
-* libs/armeabi/libalbertpop.so => orgsmartrobotandroid8140/src/main/jniLibs/armeabi/libalbertpop.so
-* libs/armeabi/libalpha.so => orgsmartrobotandroid8140/src/main/jniLibs/armeabi/libalpha.so
-* libs/armeabi/libdice.so => orgsmartrobotandroid8140/src/main/jniLibs/armeabi/libdice.so
-* libs/armeabi/libpen.so => orgsmartrobotandroid8140/src/main/jniLibs/armeabi/libpen.so
-* res/ => orgsmartrobotandroid8140/src/main/res/
-* src/ => orgsmartrobotandroid8140/src/main/java/
-* src/org/smartrobot/android/ipc/ac.aidl => orgsmartrobotandroid8140/src/main/aidl/org/smartrobot/android/ipc/ac.aidl
-* src/org/smartrobot/android/ipc/dc.aidl => orgsmartrobotandroid8140/src/main/aidl/org/smartrobot/android/ipc/dc.aidl
-* src/org/smartrobot/android/ipc/dr.aidl => orgsmartrobotandroid8140/src/main/aidl/org/smartrobot/android/ipc/dr.aidl
-* src/org/smartrobot/android/ipc/rc.aidl => orgsmartrobotandroid8140/src/main/aidl/org/smartrobot/android/ipc/rc.aidl
+* AndroidManifest.xml => liblame/src/main/AndroidManifest.xml
+* jni/ => liblame/src/main/jni/
+* res/ => liblame/src/main/res/
+* src/ => liblame/src/main/java/
 
 Next Steps:
 -----------
