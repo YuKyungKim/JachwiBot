@@ -22,6 +22,11 @@
             android:enabled="true"
             android:exported="true" >
         </service>
+
+        <activity
+            android:name=".AlarmActivity"
+            android:label="@string/title_activity_alarm" >
+        </activity>
     </application>
 
 </manifest>
