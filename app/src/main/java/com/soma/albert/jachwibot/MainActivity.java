@@ -28,11 +28,15 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.roboid.robot.Device;
+import org.roboid.robot.Robot;
 import org.smartrobot.android.RobotActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import kr.robomation.physical.Albert;
 
 
 public class MainActivity extends RobotActivity implements View.OnClickListener {
@@ -59,12 +63,21 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
     GridView houseworkGridView, alarmGridView;
     private ArrayList<HouseworkComponent> houseCompList = new ArrayList();
     private ArrayList<AlarmComponent> alarmCompList = new ArrayList();
+    private Conversation conversation;
+    private Device mSpeakerDevice;
+
+    public String simsimi_response="";
 
     // gps
     private double lat;
     private double lon;
 
     private static final int ALARM_REQUEST = 10;
+    @Override
+    public void onInitialized(Robot robot)
+    {
+        mSpeakerDevice = robot.findDeviceById(Albert.EFFECTOR_SPEAKER);
+    }
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -81,9 +94,19 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
                 AlarmActivity.alarm_cancel(this, AlarmActivity.MORNING_CALL);
                 AlarmActivity.alarm_cancel(this, 1);
                 break;
+            case R.id.conversationBtn:
+                conversation.start(mSpeakerDevice);
+                try {
+                    Thread.sleep(300);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                check();
         }
     }
+    public void check(){
 
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
@@ -99,6 +122,12 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
+
+
+        //get Context to Decoder
+        Decoder_pcm decoder = new Decoder_pcm(this);
+        //get Context to Decoder
+        conversation= new Conversation(this);
 
         currentTempText = (TextView) findViewById(R.id.curtemptext);
         maxMinTempText = (TextView) findViewById(R.id.maxMinTempText);
@@ -132,7 +161,10 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         // albert connect button
         Button albertConnectBtn = (Button) findViewById(R.id.albertConnectBtn);
         albertConnectBtn.setOnClickListener(this);
-
+        // 알버트랑 대화하기
+        Button conversationBtn = (Button) findViewById(R.id.conversationBtn);
+        conversationBtn.setOnClickListener(this);
+        // 알람 추가 버튼
         findViewById(R.id.Alarm_set).setOnClickListener(this);
         findViewById(R.id.Alarm_Cancel).setOnClickListener(this);
     }

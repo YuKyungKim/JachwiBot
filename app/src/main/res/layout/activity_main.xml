@@ -90,7 +90,7 @@
 
     <GridView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="75dp"
         android:id="@+id/houseworkGridView"
         android:columnWidth="70dp"
         android:gravity="center"
@@ -111,7 +111,7 @@
 
     <GridView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="270dp"
         android:id="@+id/alarmGridView"
         android:columnWidth="70dp"
         android:gravity="center"
@@ -119,40 +119,59 @@
         android:stretchMode="columnWidth"
         android:drawSelectorOnTop="true"
         android:layout_below="@+id/line2"
-        android:layout_above="@+id/line3" />
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:id="@+id/line3"
         android:background="#000"
-        android:layout_above="@+id/albertConnectBtn"
         android:layout_alignParentStart="true"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp" />
+        android:layout_marginBottom="5dp"
+        android:layout_above="@+id/bottomPanel" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Connect Albert"
-        android:id="@+id/albertConnectBtn"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:id="@+id/bottomPanel"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="true">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="알람 설정"
-        android:id="@+id/Alarm_set"
-        android:layout_alignBottom="@+id/albertConnectBtn"
-        android:layout_toEndOf="@+id/albertConnectBtn" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="알버트연결"
+            android:id="@+id/albertConnectBtn"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="알람 삭제"
-        android:id="@+id/Alarm_Cancel"
-        android:layout_alignBottom="@+id/Alarm_set"
-        android:layout_toEndOf="@+id/Alarm_set" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Talk"
+            android:id="@+id/conversationBtn"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="알람 설정"
+            android:id="@+id/Alarm_set"
+            android:layout_alignBottom="@+id/albertConnectBtn"
+            android:layout_toEndOf="@+id/albertConnectBtn" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="삭제"
+            android:id="@+id/Alarm_Cancel"
+            android:layout_alignBottom="@+id/Alarm_set"
+            android:layout_toEndOf="@+id/Alarm_set" />
+    </LinearLayout>
 
 </RelativeLayout>
