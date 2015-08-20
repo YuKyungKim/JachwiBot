@@ -6,6 +6,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 /**
  * Created by whee6409 on 15. 8. 20.
  */
@@ -64,69 +66,76 @@ public class DBManager extends SQLiteOpenHelper {
         db.close();
     }
 
-    public String PrintAlarmData() {
+    public AlarmComponent selectAlarmDataById(int alarmId) {
         SQLiteDatabase db = getReadableDatabase();
-        String str = "";
+        Cursor cursor = db.rawQuery("select * from ALARM_LIST WHERE alarm_id = '"+alarmId+"';", null);
+        AlarmComponent alarmComponent = null;
+        alarmComponent = new AlarmComponent(cursor.getInt(0), cursor.getString(1),
+                cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getInt(5),
+                cursor.getInt(6), cursor.getString(7));
 
-        Cursor cursor = db.rawQuery("select * from ALARM_LIST", null);
-        while(cursor.moveToNext()) {
-            str += cursor.getInt(0)
-                    + " : alarm_name "
-                    + cursor.getString(1)
-                    + ", date = "
-                    + cursor.getString(2)
-                    + ", day = "
-                    + cursor.getString(3)
-                    + ", hour = "
-                    + cursor.getInt(4)
-                    + ", minute = "
-                    + cursor.getInt(5)
-                    + ", isRepeat = "
-                    + cursor.getInt(6)
-                    + ", memo = "
-                    + cursor.getString(7)
-                    + "\n";
-        }
-
-        return str;
+        return alarmComponent;
     }
 
-    public String PrintCallData() {
+    public ArrayList<AlarmComponent> selectAllAlarmData() {
         SQLiteDatabase db = getReadableDatabase();
-        String str = "";
+        ArrayList<AlarmComponent> alarmCompList = null;
 
-        Cursor cursor = db.rawQuery("select * from CALL_LIST", null);
+        Cursor cursor = db.rawQuery("select * from ALARM_LIST;", null);
         while(cursor.moveToNext()) {
-            str += cursor.getInt(0)
-                    + " : call_name "
-                    + cursor.getString(1)
-                    + ", call_number = "
-                    + cursor.getString(2)
-                    + ", period = "
-                    + cursor.getInt(3)
-                    + ", recent_call = "
-                    + cursor.getString(4)
-                    + "\n";
+            AlarmComponent alarmComponent = null;
+            alarmComponent = new AlarmComponent(cursor.getInt(0), cursor.getString(1),
+                    cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getInt(5),
+                    cursor.getInt(6), cursor.getString(7));
+            alarmCompList.add(alarmComponent);
         }
 
-        return str;
+        return alarmCompList;
     }
 
-    public String PrintHouseworkData() {
+    public Call selectCallDataById(int callId) {
         SQLiteDatabase db = getReadableDatabase();
-        String str = "";
+        Cursor cursor = db.rawQuery("select * from CALL_LIST WHERE call_id = '"+callId+"';", null);
+        Call call = null;
+        call = new Call(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
+                cursor.getInt(3), cursor.getString(4));
+        return call;
+    }
 
-        Cursor cursor = db.rawQuery("select * from HOUSEWORK_LIST", null);
+    public ArrayList<Call> selectAllCallData() {
+        SQLiteDatabase db = getReadableDatabase();
+        ArrayList<Call> callList = null;
+
+        Cursor cursor = db.rawQuery("select * from CALL_LIST;", null);
         while(cursor.moveToNext()) {
-            str += cursor.getInt(0)
-                    + " : housework_type "
-                    + cursor.getInt(1)
-                    + ", last_day = "
-                    + cursor.getString(2)
-                    + "\n";
+            Call call = null;
+            call = new Call(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
+                    cursor.getInt(3), cursor.getString(4));
+            callList.add(call);
         }
 
-        return str;
+        return callList;
     }
 
+    public HouseworkComponent selectHouseworkById(int houseworkId) {
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from HOUSEWORK_LIST WHERE housework_id = '"+houseworkId+"';", null);
+        HouseworkComponent houseworkComponent = null;
+        houseworkComponent = new HouseworkComponent(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
+        return houseworkComponent;
+    }
+
+    public ArrayList<HouseworkComponent> selectAllHoseworkData() {
+        SQLiteDatabase db = getReadableDatabase();
+        ArrayList<HouseworkComponent> houseworkList = null;
+
+        Cursor cursor = db.rawQuery("select * from HOUSEWORK_LIST;", null);
+        while(cursor.moveToNext()) {
+            HouseworkComponent houseworkComponent = null;
+            houseworkComponent = new HouseworkComponent(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
+            houseworkList.add(houseworkComponent);
+        }
+
+        return houseworkList;
+    }
 }

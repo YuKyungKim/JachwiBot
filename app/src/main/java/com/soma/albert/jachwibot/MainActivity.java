@@ -58,14 +58,16 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
     Map<String, Object> weatherParam;
     String hndResult = "";
     Handler msgHandler;
+    // TODO 예보 따로 따오기..
 
     // 집안일 패널과 알람 패널
     GridView houseworkGridView, alarmGridView;
     private ArrayList<HouseworkComponent> houseCompList = new ArrayList();
     private ArrayList<AlarmComponent> alarmCompList = new ArrayList();
+
+    // bottom panel - conversation with albert
     private Conversation conversation;
     private Device mSpeakerDevice;
-
     public String simsimi_response="";
 
     // gps
@@ -102,6 +104,9 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
                     e.printStackTrace();
                 }
                 check();
+                break;
+            // TODO 집안일 및 알람 추가 버튼 만들기
+
         }
     }
     public void check(){
@@ -122,7 +127,6 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
-
 
         //get Context to Decoder
         Decoder_pcm decoder = new Decoder_pcm(this);
@@ -152,10 +156,22 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         // housework panel
         houseworkGridView = (GridView) findViewById(R.id.houseworkGridView);
         houseworkGridView.setAdapter(new houseworkGridAdapter());
+        // db data call - housework
+        ArrayList<HouseworkComponent> houseworkList = dbManager.selectAllHoseworkData();
+        for(int i = 0; i < houseworkList.size(); i++) {
+            houseCompList.add(houseworkList.get(i));
+        }
+        // TODO 추가 버튼 만들것.
 
         // alarm panel
         alarmGridView = (GridView) findViewById(R.id.alarmGridView);
         alarmGridView.setAdapter(new alarmGridAdapter());
+        // db data call - alarm
+        ArrayList<AlarmComponent> alarmList = dbManager.selectAllAlarmData();
+        for(int i = 0; i < alarmList.size(); i++) {
+            alarmCompList.add(alarmList.get(i));
+        }
+        // TODO 추가 버튼 만들것.
 
         // bottom panel
         // albert connect button
