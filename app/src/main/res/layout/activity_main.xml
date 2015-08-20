@@ -124,4 +124,12 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Talk with Albert"
+        android:id="@+id/conversationBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>

@@ -3,10 +3,7 @@ package com.soma.albert.jachwibot;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,10 +15,13 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.roboid.robot.Device;
+import org.roboid.robot.Robot;
 import org.smartrobot.android.RobotActivity;
 
 import java.util.ArrayList;
-import java.util.List;
+
+import kr.robomation.physical.Albert;
 
 
 public class MainActivity extends RobotActivity implements View.OnClickListener{
@@ -30,19 +30,42 @@ public class MainActivity extends RobotActivity implements View.OnClickListener{
     GridView houseworkGridView, alarmGridView;
     private ArrayList<HouseworkComponent> houseCompList = new ArrayList();
     private ArrayList<AlarmComponent> alarmCompList = new ArrayList();
+    private Conversation conversation;
+    private Device mSpeakerDevice;
 
+    public String simsimi_response="";
+
+    @Override
+    public void onInitialized(Robot robot)
+    {
+        mSpeakerDevice = robot.findDeviceById(Albert.EFFECTOR_SPEAKER);
+    }
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.albertConnectBtn) {
             Intent serviceIntent = new Intent(this, LuncherService.class);
             startService(serviceIntent);
         }
+        else if(v.getId() == R.id.conversationBtn) {//알버트 대화 버튼
+            conversation.start(mSpeakerDevice);
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            check();
+        }
     }
+    public void check(){
 
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        //get Context to Decoder
+        Decoder_pcm decoder = new Decoder_pcm(this);
+        //get Context to Decoder
+        conversation= new Conversation(this);
         // test component
         houseCompList.add(new HouseworkComponent(1, "오늘"));
         houseCompList.add(new HouseworkComponent(2, "3일째"));
@@ -62,6 +85,11 @@ public class MainActivity extends RobotActivity implements View.OnClickListener{
         // 알버트와 스마트폰을 연결하는 버튼
         Button albertConnectBtn = (Button) findViewById(R.id.albertConnectBtn);
         albertConnectBtn.setOnClickListener(this);
+
+        // 알버트랑 대화하기
+        Button conversationBtn = (Button) findViewById(R.id.conversationBtn);
+        conversationBtn.setOnClickListener(this);
+
     }
 
     public class houseworkGridAdapter extends BaseAdapter {

@@ -2,11 +2,18 @@
 <items version="2" >
 
     <item
-        jar="/home/whee6409/AndroidStudioProjects/JachwiBot/app/build/intermediates/exploded-aar/JachwiBot/orgsmartrobotandroid8140/unspecified/jars/classes.jar"
+        jar="/Users/josh/AndroidStudioProjects/JachwiBot/app/build/intermediates/exploded-aar/JachwiBot/orgsmartrobotandroid8140/unspecified/jars/classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="1c5323f2cce6a42c807c5ac32c4ce1a549f605c6">
-        <dex dex="/home/whee6409/AndroidStudioProjects/JachwiBot/app/build/intermediates/pre-dexed/debug/classes-e8d3ac333bcc65a08c1d366c2737cfa0fa9adfc4.jar" />
+        sha1="75ec07dee1599544640f4afad6d965141fbcae0a">
+        <dex dex="/Users/josh/AndroidStudioProjects/JachwiBot/app/build/intermediates/pre-dexed/debug/classes-46c740761ede1994759c0bfe89e85560833d6f83.jar" />
+    </item>
+    <item
+        jar="/Users/josh/AndroidStudioProjects/JachwiBot/app/jl1.0.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="33c346fe3c5f75dfbfb477e1f3d8446427633890">
+        <dex dex="/Users/josh/AndroidStudioProjects/JachwiBot/app/build/intermediates/pre-dexed/debug/jl1.0.1-c689b47559a2c028857ab77308c6370cf90e937d.jar" />
     </item>
 
 </items>
