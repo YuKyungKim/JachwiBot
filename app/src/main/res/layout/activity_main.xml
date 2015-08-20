@@ -16,13 +16,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:layout_weight="4">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="33℃ / 27℃"
-                android:id="@+id/temperatureText"
+                android:text="0℃"
+                android:id="@+id/curtemptext"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
                 android:textSize="33dp"
@@ -31,21 +32,36 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="강수확률 90%"
-                android:id="@+id/rainProbText"
-                android:layout_below="@+id/temperatureText"
+                android:text="0℃ / 0℃%"
+                android:id="@+id/maxMinTempText"
+                android:layout_below="@+id/temptext"
                 android:layout_alignParentStart="true"
                 android:textSize="15dp" />
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:id="@+id/weatherImageIcon"
-            android:layout_alignTop="@+id/temperatureText"
-            android:layout_centerHorizontal="true"
-            android:layout_marginRight="25dp"
-            android:src="@drawable/weather" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/weatherImageIcon"
+                android:layout_alignTop="@+id/temptext"
+                android:layout_centerHorizontal="true"
+                android:adjustViewBounds="true"
+                android:layout_gravity="bottom" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/weatherText"
+                android:textSize="10dp"
+                android:text="날씨정보"
+                android:layout_gravity="center_horizontal" />
+        </LinearLayout>
 
         <ImageView
             android:layout_width="60dp"
@@ -54,7 +70,6 @@
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/weatherImageIcon"
             android:layout_marginStart="0dp"
-            android:src="@drawable/umbrella"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="0dp"
             android:layout_marginRight="0dp"
@@ -74,7 +89,7 @@
         android:layout_marginBottom="5dp" />
 
     <GridView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/houseworkGridView"
         android:columnWidth="70dp"

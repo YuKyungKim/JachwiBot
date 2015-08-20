@@ -22,4 +22,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':orgsmartrobotandroid8140')
+    compile project(':planetxoauthandroidsdk')
+    compile project(':planetxopenapiandroidsdk')
+    compile files('libs/json_simple-1.1.jar')
 }
