@@ -5,10 +5,12 @@ lt application files
 com_crashlytics_export_strings.xml
 
 # Local configuration file (sdk path, etc)
-local.properties
+/local.properties
 
 # Gradle generated files
-.gradle/
+.gradle
+build/
+/build/inter
 
 # Signing files
 .signing/
@@ -34,5 +36,20 @@ local.properties
 .Spotlight-V100
 .Trashes
 ehthumbs.db
+Thumbs.db
 Thumbs.db/build
 /captures
+
+*.apk
+*.ap_
+*.dex
+*.class
+bin/
+gen/
+
+.classpath
+.project
+
+build/intermediates/dex-cache/cache.xml
+build/intermediates/gradle_project_sync_data.bin
+

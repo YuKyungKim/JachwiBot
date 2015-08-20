@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/home/whee6409/AndroidStudioProjects/JachwiBot/app/build/intermediates/exploded-aar/JachwiBot/orgsmartrobotandroid8140/unspecified/jars/classes.jar"
+        jar="/home/whee6409/AndroidStudioProjects/JachwiBot/app/jl1.0.1.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="1c5323f2cce6a42c807c5ac32c4ce1a549f605c6">
-        <dex dex="/home/whee6409/AndroidStudioProjects/JachwiBot/app/build/intermediates/pre-dexed/debug/classes-e8d3ac333bcc65a08c1d366c2737cfa0fa9adfc4.jar" />
+        sha1="33c346fe3c5f75dfbfb477e1f3d8446427633890">
+        <dex dex="/home/whee6409/AndroidStudioProjects/JachwiBot/app/build/intermediates/pre-dexed/debug/jl1.0.1-e56a3b3d1ad044a2177759ba3669a9d7731a135e.jar" />
     </item>
 
 </items>

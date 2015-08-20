@@ -35,6 +35,7 @@ public class LuncherService extends Service{
         startActivity(myapp);
 
         this.stopSelf();
+
     }
 
     @Override
