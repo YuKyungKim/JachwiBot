@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="C:\Users\wlsdn\AndroidStudioProjects\JachwiBot\app\build\intermediates\exploded-aar\JachwiBot\orgsmartrobotandroid8140\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f84a2d23f4d049142da2a4b4d4d29b82a4cb4af2">
+        <dex dex="C:\Users\wlsdn\AndroidStudioProjects\JachwiBot\app\build\intermediates\pre-dexed\debug\classes-1f49f051e6ffbf7d8c78dd6339d7dc49af17cbc3.jar" />
+    </item>
+    <item
         jar="/home/whee6409/AndroidStudioProjects/JachwiBot/planetxoauthandroidsdk/build/libs/planetxoauthandroidsdk.jar"
         jumboMode="false"
         revision="22.0.1"
@@ -14,6 +21,7 @@
         revision="22.0.1"
         sha1="087bb1d6f215d8c0b50abce5e77346a3ad187cdf">
         <dex dex="/home/whee6409/AndroidStudioProjects/JachwiBot/app/build/intermediates/pre-dexed/debug/classes-e8d3ac333bcc65a08c1d366c2737cfa0fa9adfc4.jar" />
+>>>>>>> master
     </item>
     <item
         jar="/home/whee6409/AndroidStudioProjects/JachwiBot/planetxopenapiandroidsdk/build/libs/planetxopenapiandroidsdk.jar"

@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,15 +64,38 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
     private double lat;
     private double lon;
 
+    private static final int ALARM_REQUEST = 10;
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.albertConnectBtn) {
-            Intent serviceIntent = new Intent(this, LuncherService.class);
-            startService(serviceIntent);
+        switch (v.getId()) {
+            case R.id.albertConnectBtn:
+                Intent serviceIntent = new Intent(this, LuncherService.class);
+                startService(serviceIntent);
+                break;
+            case R.id.Alarm_set:
+                Intent intent = new Intent(this, AlarmActivity.class);
+                intent.putExtra("Class", this.getClass());
+                startActivityForResult(intent, ALARM_REQUEST);
+                break;
+            case R.id.Alarm_Cancel:
+                AlarmActivity.alarm_cancel(this, AlarmActivity.MORNING_CALL);
+                AlarmActivity.alarm_cancel(this, 1);
+                break;
         }
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case ALARM_REQUEST:
+                if (resultCode == RESULT_OK) {
+                    int Alarm_data = data.getIntExtra("Alarm_ID", -1);
+                    Log.d("Alarm", "ID = " + String.valueOf(Alarm_data));
+                }
+                break;
+        }
+    }
+
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
@@ -110,6 +132,9 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         // albert connect button
         Button albertConnectBtn = (Button) findViewById(R.id.albertConnectBtn);
         albertConnectBtn.setOnClickListener(this);
+
+        findViewById(R.id.Alarm_set).setOnClickListener(this);
+        findViewById(R.id.Alarm_Cancel).setOnClickListener(this);
     }
 
     public class houseworkGridAdapter extends BaseAdapter {
@@ -204,13 +229,11 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    protected void onNewIntent(Intent intent) {
+        Log.d("Alarm", "ID = " + String.valueOf(intent.getIntExtra("ID", -1)) +
+                " Repeat = " + String.valueOf(intent.getBooleanExtra("Repeat", false)));
     }
 
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long

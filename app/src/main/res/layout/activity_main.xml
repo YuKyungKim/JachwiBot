@@ -139,4 +139,20 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="알람 설정"
+        android:id="@+id/Alarm_set"
+        android:layout_alignBottom="@+id/albertConnectBtn"
+        android:layout_toEndOf="@+id/albertConnectBtn" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="알람 삭제"
+        android:id="@+id/Alarm_Cancel"
+        android:layout_alignBottom="@+id/Alarm_set"
+        android:layout_toEndOf="@+id/Alarm_set" />
+
 </RelativeLayout>
