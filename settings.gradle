@@ -1,2 +1,5 @@
 include ':app'
 include ':orgsmartrobotandroid8140'
+include ':planetxoauthandroidsdk'
+include ':planetxopenapiandroidsdk'
+include ':planetxsampleandroid'
