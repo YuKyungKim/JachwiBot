@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="planetxoauthandroidsdk.planetxoauthandroidsdk">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/planetxoauthandroidsdk/build/libs/planetxoauthandroidsdk.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

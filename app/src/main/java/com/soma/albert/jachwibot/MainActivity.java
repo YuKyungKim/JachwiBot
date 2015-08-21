@@ -153,13 +153,16 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         // weather panel
         weather();
 
+
         // housework panel
         houseworkGridView = (GridView) findViewById(R.id.houseworkGridView);
         houseworkGridView.setAdapter(new houseworkGridAdapter());
         // db data call - housework
         ArrayList<HouseworkComponent> houseworkList = dbManager.selectAllHoseworkData();
-        for(int i = 0; i < houseworkList.size(); i++) {
-            houseCompList.add(houseworkList.get(i));
+        if(houseworkList != null) {
+            for (int i = 0; i < houseworkList.size(); i++) {
+                houseCompList.add(houseworkList.get(i));
+            }
         }
         // TODO 추가 버튼 만들것.
 
@@ -168,8 +171,10 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         alarmGridView.setAdapter(new alarmGridAdapter());
         // db data call - alarm
         ArrayList<AlarmComponent> alarmList = dbManager.selectAllAlarmData();
-        for(int i = 0; i < alarmList.size(); i++) {
-            alarmCompList.add(alarmList.get(i));
+        if(alarmList != null) {
+            for (int i = 0; i < alarmList.size(); i++) {
+                alarmCompList.add(alarmList.get(i));
+            }
         }
         // TODO 추가 버튼 만들것.
 
@@ -261,7 +266,7 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
             TextView cmpText = (TextView) convertView.findViewById(R.id.cmpText);
 
             AlarmComponent cmp = alarmCompList.get(position);
-
+            /*
             if (cmp.getAlarmId() == 1) {
                 cmpIcon.setImageResource(R.drawable.alarm_clock);
                 cmpText.setText(cmp.getAlarmText());
@@ -272,6 +277,7 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
                 cmpIcon.setImageResource(R.drawable.calendar);
                 cmpText.setText(cmp.getAlarmText());
             }
+            */
             return convertView;
         }
     }

@@ -20,15 +20,14 @@ public class DBManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE ALARM_LIST(" +
-                "alarm_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "alarm_type INTEGER," +
-                "date TEXT," +
-                "day TEXT," +
+                "alarm_name TEXT," +
+                "isRepeat TEXT, " +
+                "week TEXT," +
                 "hour INTEGER, " +
-                "minute INTEGER, " +
-                "isRepeat INTEGER, " +
-                "memo TEXT)" +
-                ";");
+                "minute INTEGER " +
+                ");");
         db.execSQL("CREATE TABLE CALL_LIST(" +
                 "call_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "call_name TEXT," +
@@ -68,11 +67,10 @@ public class DBManager extends SQLiteOpenHelper {
 
     public AlarmComponent selectAlarmDataById(int alarmId) {
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("select * from ALARM_LIST WHERE alarm_id = '"+alarmId+"';", null);
+        Cursor cursor = db.rawQuery("select * from ALARM_LIST WHERE alarm_type = '" + alarmId + "';", null);
         AlarmComponent alarmComponent = null;
         alarmComponent = new AlarmComponent(cursor.getInt(0), cursor.getString(1),
-                cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getInt(5),
-                cursor.getInt(6), cursor.getString(7));
+                cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getInt(5));
 
         return alarmComponent;
     }
@@ -85,8 +83,7 @@ public class DBManager extends SQLiteOpenHelper {
         while(cursor.moveToNext()) {
             AlarmComponent alarmComponent = null;
             alarmComponent = new AlarmComponent(cursor.getInt(0), cursor.getString(1),
-                    cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getInt(5),
-                    cursor.getInt(6), cursor.getString(7));
+                    cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getInt(5));
             alarmCompList.add(alarmComponent);
         }
 

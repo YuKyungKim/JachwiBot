@@ -31,6 +31,7 @@ public class AlarmActivity extends Activity {
         TimePicker mTime = (TimePicker) findViewById(R.id.timePicker);
         mTime.setCurrentHour(mCalendar.get(Calendar.HOUR_OF_DAY));
         mTime.setCurrentMinute(mCalendar.get(Calendar.MINUTE));
+
     }
     public void onClick(View v) {
         switch (v.getId()) {
@@ -122,6 +123,27 @@ public class AlarmActivity extends Activity {
         intent.putExtra("Week", Week);
         intent.putExtra("ID", ID);
 
+        String Week_str = "";
+        for(int i = 0; i < Week.length; i++) {
+            Week_str += String.valueOf(Week[i]);
+            if(i < Week.length - 1) {
+                Week_str += "/";
+            }
+        }
+        final DBManager dbManager = new DBManager(getBaseContext(),"jachwibot.db", null, 1);
+
+        dbManager.insert("insert into ALARM_LIST values(null," +
+                String.valueOf(ID) + "," +
+                "'" + String.valueOf(repeat) + "'," +
+                "'" + Week_str + "'," +
+                String.valueOf(calendar.get(Calendar.HOUR_OF_DAY)) + "," +
+                String.valueOf(calendar.get(Calendar.MINUTE)) +
+                ");");
+
+        AlarmComponent test = dbManager.selectAlarmDataById(0);
+        Log.d("DB Data", String.valueOf(test.getMin()));
+
+        /*
         PendingIntent sender = PendingIntent.getBroadcast(getBaseContext(), ID, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         if(repeat){
             boolean Result = false;
@@ -138,6 +160,8 @@ public class AlarmActivity extends Activity {
         else{
             am.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), sender);
         }
+        */
+
         return ID;
     }
 }
