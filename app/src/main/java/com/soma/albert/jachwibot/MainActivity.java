@@ -123,10 +123,12 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
 
+        //get Context to Calendar
+        Calendar calendar = new Calendar(this);
 
         //get Context to Decoder
         Decoder_pcm decoder = new Decoder_pcm(this);
-        //get Context to Decoder
+
         conversation= new Conversation(this);
 
         currentTempText = (TextView) findViewById(R.id.curtemptext);
