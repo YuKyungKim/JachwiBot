@@ -5,4 +5,5 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_alarm">AlarmActivity</string>
     <string name="title_activity_gps_info">GpsInfo</string>
+    <string name="title_activity_housework">HouseworkActivity</string>
 </resources>
