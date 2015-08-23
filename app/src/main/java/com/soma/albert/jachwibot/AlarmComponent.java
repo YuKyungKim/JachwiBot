@@ -4,32 +4,70 @@ package com.soma.albert.jachwibot;
  * Created by whee6409 on 15. 8. 13.
  */
 public class AlarmComponent {
-    private int alarmId;
-    private String alarmText;
+    private int alarmtype;
+    private String alarmname;
+    private boolean isRepeat;
+    private String week;
+    private int hour;
+    private int min;
 
     public AlarmComponent() {
-        this.alarmId = 0;
-        this.alarmText = null;
+        this.alarmtype = -1;
+        this.alarmname = null;
+        this.isRepeat = true;
+        this.week = null;
+        this.hour = 0;
+        this.min = 0;
     }
 
-    public AlarmComponent(int alarmId, String alarmText) {
-        this.alarmId = alarmId;
-        this.alarmText = alarmText;
+    public AlarmComponent(int alarmtype, String alarmname, String isRepeat, String week, int hour, int min) {
+        this.alarmtype = alarmtype;
+        this.alarmname = alarmname;
+        this.isRepeat = Boolean.valueOf(isRepeat);
+        this.week = week;
+        this.hour = hour;
+        this.min = min;
     }
 
-    public int getAlarmId() {
-        return alarmId;
+    public int getAlarmtype() {
+        return alarmtype;
+    }
+    public void setAlarmtype(int alarmtype) {
+        this.alarmtype = alarmtype;
     }
 
-    public void setAlarmId(int alarmId) {
-        this.alarmId = alarmId;
+    public String getAlarmname() {
+        return alarmname;
+    }
+    public void setAlarmname(String alarmname) {
+        this.alarmname = alarmname;
     }
 
-    public String getAlarmText() {
-        return alarmText;
+    public boolean getisRepeat() {
+        return isRepeat;
+    }
+    public void setisRepeat(boolean isRepeat) {
+        this.isRepeat = isRepeat;
     }
 
-    public void setAlarmText(String alarmText) {
-        this.alarmText = alarmText;
+    public String getWeek() {
+        return week;
+    }
+    public void setWeek(String week) {
+        this.week = week;
+    }
+
+    public int getHour() {
+        return hour;
+    }
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
+
+    public int getMin() {
+        return min;
+    }
+    public void setMin(int min) {
+        this.min = min;
     }
 }

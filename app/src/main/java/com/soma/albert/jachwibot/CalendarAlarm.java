@@ -11,14 +11,14 @@ import java.util.Date;
 /**
  * Created by josh on 15. 8. 21..
  */
-public class Calendar {
+public class CalendarAlarm {
 
     private Cursor mCursor = null;
     private Context context;
     private static final String[] COLS = new String[]
             {CalendarContract.Events.TITLE, CalendarContract.Events.DTSTART};
 
-    public Calendar(Context current){
+    public CalendarAlarm(Context current){
         context=current;
     }
     public String get_current_schedule() {//null값이 리턴되면 그날에 일정이 없음. string은 그날의 첫 일정

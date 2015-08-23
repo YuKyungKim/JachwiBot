@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="planetxopenapiandroidsdk.planetxopenapiandroidsdk">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/planetxopenapiandroidsdk/build/libs/planetxopenapiandroidsdk.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

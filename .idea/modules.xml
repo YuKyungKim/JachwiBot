@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JachwiBot.iml" filepath="$PROJECT_DIR$/JachwiBot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/orgsmartrobotandroid8140/orgsmartrobotandroid8140.iml" filepath="$PROJECT_DIR$/orgsmartrobotandroid8140/orgsmartrobotandroid8140.iml" />
+      <module fileurl="file://$PROJECT_DIR$/planetxoauthandroidsdk/planetxoauthandroidsdk.iml" filepath="$PROJECT_DIR$/planetxoauthandroidsdk/planetxoauthandroidsdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/planetxopenapiandroidsdk/planetxopenapiandroidsdk.iml" filepath="$PROJECT_DIR$/planetxopenapiandroidsdk/planetxopenapiandroidsdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/planetxsampleandroid/planetxsampleandroid.iml" filepath="$PROJECT_DIR$/planetxsampleandroid/planetxsampleandroid.iml" />
+    </modules>
+  </component>
+</project>

@@ -4,28 +4,28 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.READ_CALENDAR"/>
-    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:launchMode="singleTop"
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:launchMode="singleTop" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:launchMode="singleTop"
             android:name=".AlarmActivity"
-            android:label="@string/title_activity_alarm" >
+            android:label="@string/title_activity_alarm"
+            android:launchMode="singleTop" >
         </activity>
 
         <service
@@ -38,5 +38,10 @@
             android:name=".AlarmReceiver"
             android:process=":remote" />
 
+        <activity
+            android:name=".HouseworkActivity"
+            android:label="@string/title_activity_housework" >
+        </activity>
     </application>
+
 </manifest>

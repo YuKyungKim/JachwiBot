@@ -4,24 +4,24 @@
     android:layout_height="match_parent"
     android:padding="5dp"
     android:orientation="vertical"
-    android:id="@+id/alarm_comp">
+    android:id="@+id/housework_comp">
 
     <ImageView
-        android:id="@+id/cmpIcon"
+        android:id="@+id/houseCmpIcon"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
-        android:src="@drawable/alarm_clock" />
+        android:src="@drawable/trash" />
 
     <TextView
-        android:id="@+id/cmpText"
+        android:id="@+id/houseCmpText"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:ellipsize="end"
         android:gravity="center"
         android:lines="1"
-        android:text="모닝콜"
+        android:text="오늘"
         />
 
 </LinearLayout>
