@@ -4,73 +4,62 @@ package com.soma.albert.jachwibot;
  * Created by whee6409 on 15. 8. 13.
  */
 public class AlarmComponent {
-    private int alarmId;
-    private String alarmText;
-    private String date;
-    private String day;
+    private int alarmtype;
+    private String alarmname;
+    private boolean isRepeat;
+    private String week;
     private int hour;
     private int min;
-    private int isRepeat;
-    private String text;
 
     public AlarmComponent() {
-        this.alarmId = 0;
-        this.alarmText = null;
-        this.date = null;
-        this.day = null;
+        this.alarmtype = -1;
+        this.alarmname = null;
+        this.isRepeat = true;
+        this.week = null;
         this.hour = 0;
         this.min = 0;
-        this.isRepeat = 0;
-        this.text = null;
     }
 
-    public AlarmComponent(int alarmId, String alarmText, String date, String day, int hour, int min, int isRepeat, String text) {
-        this.alarmId = alarmId;
-        this.alarmText = alarmText;
-        this.date = date;
-        this.day = day;
+    public AlarmComponent(int alarmtype, String alarmname, String isRepeat, String week, int hour, int min) {
+        this.alarmtype = alarmtype;
+        this.alarmname = alarmname;
+        this.isRepeat = Boolean.valueOf(isRepeat);
+        this.week = week;
         this.hour = hour;
         this.min = min;
+    }
+
+    public int getAlarmtype() {
+        return alarmtype;
+    }
+    public void setAlarmtype(int alarmtype) {
+        this.alarmtype = alarmtype;
+    }
+
+    public String getAlarmname() {
+        return alarmname;
+    }
+    public void setAlarmname(String alarmname) {
+        this.alarmname = alarmname;
+    }
+
+    public boolean getisRepeat() {
+        return isRepeat;
+    }
+    public void setisRepeat(boolean isRepeat) {
         this.isRepeat = isRepeat;
-        this.text = text;
     }
 
-    public int getAlarmId() {
-        return alarmId;
+    public String getWeek() {
+        return week;
     }
-
-    public void setAlarmId(int alarmId) {
-        this.alarmId = alarmId;
-    }
-
-    public String getAlarmText() {
-        return alarmText;
-    }
-
-    public void setAlarmText(String alarmText) {
-        this.alarmText = alarmText;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getDay() {
-        return day;
-    }
-
-    public void setDay(String day) {
-        this.day = day;
+    public void setWeek(String week) {
+        this.week = week;
     }
 
     public int getHour() {
         return hour;
     }
-
     public void setHour(int hour) {
         this.hour = hour;
     }
@@ -78,24 +67,7 @@ public class AlarmComponent {
     public int getMin() {
         return min;
     }
-
     public void setMin(int min) {
         this.min = min;
-    }
-
-    public int isRepeat() {
-        return isRepeat;
-    }
-
-    public void setIsRepeat(int isRepeat) {
-        this.isRepeat = isRepeat;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
     }
 }

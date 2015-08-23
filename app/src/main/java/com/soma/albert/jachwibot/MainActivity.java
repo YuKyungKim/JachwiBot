@@ -127,14 +127,20 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         switch (requestCode) {
             case ALARM_REQUEST:
                 if (resultCode == RESULT_OK) {
-                    int Alarm_data = data.getIntExtra("Alarm_ID", -1);
-                    Log.d("Alarm", "ID = " + String.valueOf(Alarm_data));
+                    int Alarm_data = data.getIntExtra("alarm_type", -1);
+                    Log.d("Alarm", "alarm_type = " + String.valueOf(Alarm_data));
                 }
                 break;
         }
     }
 
     @Override
+    protected void onNewIntent(Intent intent) {
+        Log.d("Alarm", "alarm_type = " + String.valueOf(intent.getIntExtra("alarm_type", -1)) +
+                " alarm_name = " + intent.getStringExtra("alarm_name") +
+                " isRepeat = " + String.valueOf(intent.getBooleanExtra("isRepeat", false)));
+    }
+
     protected void onResume() {
         super.onResume();
         // db
@@ -150,6 +156,7 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
 
         // weather panel
         weather();
+
 
         // housework panel
         houseworkGridView = (GridView) findViewById(R.id.houseworkGridView);
@@ -363,7 +370,7 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
             TextView cmpText = (TextView) convertView.findViewById(R.id.cmpText);
 
             AlarmComponent cmp = alarmCompList.get(position);
-
+            /*
             if (cmp.getAlarmId() == 1) {
                 cmpIcon.setImageResource(R.drawable.alarm_clock);
                 cmpText.setText(cmp.getAlarmText());
@@ -374,14 +381,9 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
                 cmpIcon.setImageResource(R.drawable.calendar);
                 cmpText.setText(cmp.getAlarmText());
             }
+            */
             return convertView;
         }
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        Log.d("Alarm", "ID = " + String.valueOf(intent.getIntExtra("ID", -1)) +
-                " Repeat = " + String.valueOf(intent.getBooleanExtra("Repeat", false)));
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
