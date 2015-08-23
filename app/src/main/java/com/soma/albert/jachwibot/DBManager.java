@@ -141,18 +141,19 @@ public class DBManager extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from HOUSEWORK_LIST WHERE housework_id = '" + houseworkId + "';", null);
         HouseworkComponent houseworkComponent = null;
-        houseworkComponent = new HouseworkComponent(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
+        houseworkComponent = new HouseworkComponent(cursor.getInt(0), cursor.getInt(1), cursor.getString(2));
         return houseworkComponent;
     }
 
     public ArrayList<HouseworkComponent> selectAllHoseworkData() {
         SQLiteDatabase db = getReadableDatabase();
-        ArrayList<HouseworkComponent> houseworkList = null;
+        ArrayList<HouseworkComponent> houseworkList = new ArrayList<HouseworkComponent>();
 
         Cursor cursor = db.rawQuery("select * from HOUSEWORK_LIST;", null);
         while (cursor.moveToNext()) {
             HouseworkComponent houseworkComponent = null;
-            houseworkComponent = new HouseworkComponent(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
+            houseworkComponent = new HouseworkComponent(cursor.getInt(0), cursor.getInt(1), cursor.getString(2));
+            Log.i("add", houseworkComponent.toString());
             houseworkList.add(houseworkComponent);
         }
 
