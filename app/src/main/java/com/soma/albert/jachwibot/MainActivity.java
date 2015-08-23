@@ -71,6 +71,7 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
 
     // bottom panel - conversation with albert
     private Conversation conversation;
+    private AlarmCommunication alarmcommute;
     private Device mSpeakerDevice;
     public String simsimi_response = "";
 
@@ -92,12 +93,17 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
 
+        //get Context to CalendarAlarm
+        CalendarAlarm calendar = new CalendarAlarm(this);
+
         setTitle("자취봇");
 
         //get Context to Decoder
         Decoder_pcm decoder = new Decoder_pcm(this);
         //get Context to Decoder
         conversation = new Conversation(this);
+
+        alarmcommute = new AlarmCommunication(this);
 
         currentTempText = (TextView) findViewById(R.id.curtemptext);
         maxMinTempText = (TextView) findViewById(R.id.maxMinTempText);
@@ -152,7 +158,6 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
 
         // weather panel
         //weather();
-
 
         // housework panel
         houseworkGridView = (GridView) findViewById(R.id.houseworkGridView);

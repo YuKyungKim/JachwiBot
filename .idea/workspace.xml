@@ -11,26 +11,72 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d543bc93-a9b3-4421-91ec-359cd2e22596" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/json-simple-1.1.jar" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/LuncherService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/LauncherService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/housework_dialog.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/plus.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/Call.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/HouseworkActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JachwiBot.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/captures/SystemInfo_2015.08.09_21.38.07.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/captures/SystemInfo_2015.08.09_21.38.25.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/captures/SystemInfo_2015.08.09_21.40.24.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/captures/SystemInfo_2015.08.09_22.08.56.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_housework_plus.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/android.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/annotations.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/guava_11_0_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/housework_component.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/httpclient_4_2_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/httpcore_4_2_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/httpmime_4_2_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/jl1_0_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/json_simple_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/jsr305_1_3_9.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/menu/menu_housework.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/orgsmartrobotandroid8140/orgsmartrobotandroid8140.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/outputFileStates.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/planetxoauthandroidsdk/planetxoauthandroidsdk.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/planetxoauthandroidsdk_planetxoauthandroidsdk.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/planetxopenapiandroidsdk/planetxopenapiandroidsdk.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/planetxopenapiandroidsdk_planetxopenapiandroidsdk.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/planetxsampleandroid/planetxsampleandroid.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/Calendar.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/CalendarAlarm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/AlarmActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/AlarmActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/AlarmComponent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/AlarmComponent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/AlarmReceiver.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/AlarmReceiver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/DBManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/DBManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/HouseworkActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/HouseworkActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/HouseworkComponent.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/HouseworkComponent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/Robot_Alarm.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/Robot_Alarm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_alarm.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_alarm.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/alarm_component.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/alarm_component.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/planetxsampleandroid/planetxsampleandroid.iml" afterPath="$PROJECT_DIR$/planetxsampleandroid/planetxsampleandroid.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <ignored path="JachwiBot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,42 +107,36 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22277227">
-              <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.19314286">
+              <caret line="260" column="22" selection-start-line="260" selection-start-column="22" selection-end-line="260" selection-end-column="22" />
               <folding>
-                <element signature="method#onInitialized#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onNewIntent#0;class#MainActivity#0" expanded="false" />
-                <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#7422#8470#0" expanded="true" />
-                <element signature="e#8071#8391#0" expanded="true" />
-                <element signature="e#8390#8391#0" expanded="true" />
-                <element signature="e#8469#8470#0" expanded="true" />
-                <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#7618#8666#0" expanded="true" />
+                <element signature="e#8267#8587#0" expanded="true" />
+                <element signature="e#8586#8587#0" expanded="true" />
+                <element signature="e#8665#8666#0" expanded="true" />
                 <element signature="method#createInflaterDialogHouse#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#createInflaterDialogAlarm#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#10794#11076#0" expanded="true" />
-                <element signature="e#11075#11076#0" expanded="true" />
-                <element signature="e#11115#11303#0" expanded="true" />
-                <element signature="e#11302#11303#0" expanded="true" />
+                <element signature="e#10990#11272#0" expanded="true" />
+                <element signature="e#11271#11272#0" expanded="true" />
+                <element signature="e#11311#11499#0" expanded="true" />
+                <element signature="e#11498#11499#0" expanded="true" />
                 <element signature="class#HouseworkGridAdapter#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#11635#11636#0" expanded="true" />
-                <element signature="e#11686#11687#0" expanded="true" />
-                <element signature="e#11757#11758#0" expanded="true" />
-                <element signature="e#11815#11816#0" expanded="true" />
-                <element signature="e#11886#11887#0" expanded="true" />
-                <element signature="e#11925#11926#0" expanded="true" />
+                <element signature="e#11831#11832#0" expanded="true" />
+                <element signature="e#11882#11883#0" expanded="true" />
+                <element signature="e#11953#11954#0" expanded="true" />
+                <element signature="e#12011#12012#0" expanded="true" />
+                <element signature="e#12082#12083#0" expanded="true" />
+                <element signature="e#12121#12122#0" expanded="true" />
                 <element signature="class#AlarmGridAdapter#0;class#MainActivity#0" expanded="false" />
-                <element signature="e#13268#13269#0" expanded="true" />
-                <element signature="e#13319#13320#0" expanded="true" />
-                <element signature="e#13390#13391#0" expanded="true" />
-                <element signature="e#13448#13449#0" expanded="true" />
-                <element signature="e#13519#13520#0" expanded="true" />
-                <element signature="e#13558#13559#0" expanded="true" />
-                <element signature="method#calcDay#0;class#MainActivity#0" expanded="false" />
+                <element signature="e#13464#13465#0" expanded="true" />
+                <element signature="e#13515#13516#0" expanded="true" />
+                <element signature="e#13586#13587#0" expanded="true" />
+                <element signature="e#13644#13645#0" expanded="true" />
+                <element signature="e#13715#13716#0" expanded="true" />
+                <element signature="e#13754#13755#0" expanded="true" />
                 <element signature="method#commWithOpenAPIServer#0;class#MainActivity#0" expanded="false" />
-                <element signature="class#16298:16710" expanded="false" />
+                <element signature="class#16494:16906" expanded="false" />
                 <element signature="method#weather#0;class#MainActivity#0" expanded="false" />
                 <element signature="method#skyIconMatch#0;class#MainActivity#0" expanded="false" />
               </folding>
@@ -3329,17 +3369,17 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/Robot_Alarm.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_alarm.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/AlarmComponent.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/DBManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/HouseworkActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/AlarmActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/AlarmReceiver.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/LuncherService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/LauncherService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -3354,10 +3394,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
-    <option name="width" value="1855" />
-    <option name="height" value="1056" />
+    <option name="x" value="993" />
+    <option name="y" value="52" />
+    <option name="width" value="925" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -3725,13 +3765,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
+    <frame x="993" y="52" width="925" height="1027" extended-state="4" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32869378" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32976446" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39764202" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40943193" sideWeight="0.50414133" order="7" side_tool="true" content_ui="tabs" />
@@ -3740,19 +3781,18 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5021322" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3308351" sideWeight="0.496963" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.102783725" sideWeight="0.49585864" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.102783725" sideWeight="0.49585864" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290461" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23246825" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.47786605" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3254818" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -3848,39 +3888,33 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
           <folding>
-            <element signature="method#onInitialized#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onNewIntent#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#7422#8470#0" expanded="true" />
-            <element signature="e#8071#8391#0" expanded="true" />
-            <element signature="e#8390#8391#0" expanded="true" />
-            <element signature="e#8469#8470#0" expanded="true" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#7618#8666#0" expanded="true" />
+            <element signature="e#8267#8587#0" expanded="true" />
+            <element signature="e#8586#8587#0" expanded="true" />
+            <element signature="e#8665#8666#0" expanded="true" />
             <element signature="method#createInflaterDialogHouse#0;class#MainActivity#0" expanded="false" />
             <element signature="method#createInflaterDialogAlarm#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#10794#11076#0" expanded="true" />
-            <element signature="e#11075#11076#0" expanded="true" />
-            <element signature="e#11115#11303#0" expanded="true" />
-            <element signature="e#11302#11303#0" expanded="true" />
+            <element signature="e#10990#11272#0" expanded="true" />
+            <element signature="e#11271#11272#0" expanded="true" />
+            <element signature="e#11311#11499#0" expanded="true" />
+            <element signature="e#11498#11499#0" expanded="true" />
             <element signature="class#HouseworkGridAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#11635#11636#0" expanded="true" />
-            <element signature="e#11686#11687#0" expanded="true" />
-            <element signature="e#11757#11758#0" expanded="true" />
-            <element signature="e#11815#11816#0" expanded="true" />
-            <element signature="e#11886#11887#0" expanded="true" />
-            <element signature="e#11925#11926#0" expanded="true" />
+            <element signature="e#11831#11832#0" expanded="true" />
+            <element signature="e#11882#11883#0" expanded="true" />
+            <element signature="e#11953#11954#0" expanded="true" />
+            <element signature="e#12011#12012#0" expanded="true" />
+            <element signature="e#12082#12083#0" expanded="true" />
+            <element signature="e#12121#12122#0" expanded="true" />
             <element signature="class#AlarmGridAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#13268#13269#0" expanded="true" />
-            <element signature="e#13319#13320#0" expanded="true" />
-            <element signature="e#13390#13391#0" expanded="true" />
-            <element signature="e#13448#13449#0" expanded="true" />
-            <element signature="e#13519#13520#0" expanded="true" />
-            <element signature="e#13558#13559#0" expanded="true" />
-            <element signature="method#calcDay#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#13464#13465#0" expanded="true" />
+            <element signature="e#13515#13516#0" expanded="true" />
+            <element signature="e#13586#13587#0" expanded="true" />
+            <element signature="e#13644#13645#0" expanded="true" />
+            <element signature="e#13715#13716#0" expanded="true" />
+            <element signature="e#13754#13755#0" expanded="true" />
             <element signature="method#commWithOpenAPIServer#0;class#MainActivity#0" expanded="false" />
-            <element signature="class#16298:16710" expanded="false" />
+            <element signature="class#16494:16906" expanded="false" />
             <element signature="method#weather#0;class#MainActivity#0" expanded="false" />
             <element signature="method#skyIconMatch#0;class#MainActivity#0" expanded="false" />
           </folding>
@@ -3915,39 +3949,33 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
           <folding>
-            <element signature="method#onInitialized#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onNewIntent#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#7422#8470#0" expanded="true" />
-            <element signature="e#8071#8391#0" expanded="true" />
-            <element signature="e#8390#8391#0" expanded="true" />
-            <element signature="e#8469#8470#0" expanded="true" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#7618#8666#0" expanded="true" />
+            <element signature="e#8267#8587#0" expanded="true" />
+            <element signature="e#8586#8587#0" expanded="true" />
+            <element signature="e#8665#8666#0" expanded="true" />
             <element signature="method#createInflaterDialogHouse#0;class#MainActivity#0" expanded="false" />
             <element signature="method#createInflaterDialogAlarm#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#10794#11076#0" expanded="true" />
-            <element signature="e#11075#11076#0" expanded="true" />
-            <element signature="e#11115#11303#0" expanded="true" />
-            <element signature="e#11302#11303#0" expanded="true" />
+            <element signature="e#10990#11272#0" expanded="true" />
+            <element signature="e#11271#11272#0" expanded="true" />
+            <element signature="e#11311#11499#0" expanded="true" />
+            <element signature="e#11498#11499#0" expanded="true" />
             <element signature="class#HouseworkGridAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#11635#11636#0" expanded="true" />
-            <element signature="e#11686#11687#0" expanded="true" />
-            <element signature="e#11757#11758#0" expanded="true" />
-            <element signature="e#11815#11816#0" expanded="true" />
-            <element signature="e#11886#11887#0" expanded="true" />
-            <element signature="e#11925#11926#0" expanded="true" />
+            <element signature="e#11831#11832#0" expanded="true" />
+            <element signature="e#11882#11883#0" expanded="true" />
+            <element signature="e#11953#11954#0" expanded="true" />
+            <element signature="e#12011#12012#0" expanded="true" />
+            <element signature="e#12082#12083#0" expanded="true" />
+            <element signature="e#12121#12122#0" expanded="true" />
             <element signature="class#AlarmGridAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#13268#13269#0" expanded="true" />
-            <element signature="e#13319#13320#0" expanded="true" />
-            <element signature="e#13390#13391#0" expanded="true" />
-            <element signature="e#13448#13449#0" expanded="true" />
-            <element signature="e#13519#13520#0" expanded="true" />
-            <element signature="e#13558#13559#0" expanded="true" />
-            <element signature="method#calcDay#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#13464#13465#0" expanded="true" />
+            <element signature="e#13515#13516#0" expanded="true" />
+            <element signature="e#13586#13587#0" expanded="true" />
+            <element signature="e#13644#13645#0" expanded="true" />
+            <element signature="e#13715#13716#0" expanded="true" />
+            <element signature="e#13754#13755#0" expanded="true" />
             <element signature="method#commWithOpenAPIServer#0;class#MainActivity#0" expanded="false" />
-            <element signature="class#16298:16710" expanded="false" />
+            <element signature="class#16494:16906" expanded="false" />
             <element signature="method#weather#0;class#MainActivity#0" expanded="false" />
             <element signature="method#skyIconMatch#0;class#MainActivity#0" expanded="false" />
           </folding>
@@ -3974,39 +4002,33 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="45" column="15" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
           <folding>
-            <element signature="method#onInitialized#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onNewIntent#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#7422#8470#0" expanded="true" />
-            <element signature="e#8071#8391#0" expanded="true" />
-            <element signature="e#8390#8391#0" expanded="true" />
-            <element signature="e#8469#8470#0" expanded="true" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#7618#8666#0" expanded="true" />
+            <element signature="e#8267#8587#0" expanded="true" />
+            <element signature="e#8586#8587#0" expanded="true" />
+            <element signature="e#8665#8666#0" expanded="true" />
             <element signature="method#createInflaterDialogHouse#0;class#MainActivity#0" expanded="false" />
             <element signature="method#createInflaterDialogAlarm#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#10794#11076#0" expanded="true" />
-            <element signature="e#11075#11076#0" expanded="true" />
-            <element signature="e#11115#11303#0" expanded="true" />
-            <element signature="e#11302#11303#0" expanded="true" />
+            <element signature="e#10990#11272#0" expanded="true" />
+            <element signature="e#11271#11272#0" expanded="true" />
+            <element signature="e#11311#11499#0" expanded="true" />
+            <element signature="e#11498#11499#0" expanded="true" />
             <element signature="class#HouseworkGridAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#11635#11636#0" expanded="true" />
-            <element signature="e#11686#11687#0" expanded="true" />
-            <element signature="e#11757#11758#0" expanded="true" />
-            <element signature="e#11815#11816#0" expanded="true" />
-            <element signature="e#11886#11887#0" expanded="true" />
-            <element signature="e#11925#11926#0" expanded="true" />
+            <element signature="e#11831#11832#0" expanded="true" />
+            <element signature="e#11882#11883#0" expanded="true" />
+            <element signature="e#11953#11954#0" expanded="true" />
+            <element signature="e#12011#12012#0" expanded="true" />
+            <element signature="e#12082#12083#0" expanded="true" />
+            <element signature="e#12121#12122#0" expanded="true" />
             <element signature="class#AlarmGridAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#13268#13269#0" expanded="true" />
-            <element signature="e#13319#13320#0" expanded="true" />
-            <element signature="e#13390#13391#0" expanded="true" />
-            <element signature="e#13448#13449#0" expanded="true" />
-            <element signature="e#13519#13520#0" expanded="true" />
-            <element signature="e#13558#13559#0" expanded="true" />
-            <element signature="method#calcDay#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#13464#13465#0" expanded="true" />
+            <element signature="e#13515#13516#0" expanded="true" />
+            <element signature="e#13586#13587#0" expanded="true" />
+            <element signature="e#13644#13645#0" expanded="true" />
+            <element signature="e#13715#13716#0" expanded="true" />
+            <element signature="e#13754#13755#0" expanded="true" />
             <element signature="method#commWithOpenAPIServer#0;class#MainActivity#0" expanded="false" />
-            <element signature="class#16298:16710" expanded="false" />
+            <element signature="class#16494:16906" expanded="false" />
             <element signature="method#weather#0;class#MainActivity#0" expanded="false" />
             <element signature="method#skyIconMatch#0;class#MainActivity#0" expanded="false" />
           </folding>
@@ -4033,39 +4055,33 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="38" column="37" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="37" />
           <folding>
-            <element signature="method#onInitialized#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onNewIntent#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#7422#8470#0" expanded="true" />
-            <element signature="e#8071#8391#0" expanded="true" />
-            <element signature="e#8390#8391#0" expanded="true" />
-            <element signature="e#8469#8470#0" expanded="true" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#7618#8666#0" expanded="true" />
+            <element signature="e#8267#8587#0" expanded="true" />
+            <element signature="e#8586#8587#0" expanded="true" />
+            <element signature="e#8665#8666#0" expanded="true" />
             <element signature="method#createInflaterDialogHouse#0;class#MainActivity#0" expanded="false" />
             <element signature="method#createInflaterDialogAlarm#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#10794#11076#0" expanded="true" />
-            <element signature="e#11075#11076#0" expanded="true" />
-            <element signature="e#11115#11303#0" expanded="true" />
-            <element signature="e#11302#11303#0" expanded="true" />
+            <element signature="e#10990#11272#0" expanded="true" />
+            <element signature="e#11271#11272#0" expanded="true" />
+            <element signature="e#11311#11499#0" expanded="true" />
+            <element signature="e#11498#11499#0" expanded="true" />
             <element signature="class#HouseworkGridAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#11635#11636#0" expanded="true" />
-            <element signature="e#11686#11687#0" expanded="true" />
-            <element signature="e#11757#11758#0" expanded="true" />
-            <element signature="e#11815#11816#0" expanded="true" />
-            <element signature="e#11886#11887#0" expanded="true" />
-            <element signature="e#11925#11926#0" expanded="true" />
+            <element signature="e#11831#11832#0" expanded="true" />
+            <element signature="e#11882#11883#0" expanded="true" />
+            <element signature="e#11953#11954#0" expanded="true" />
+            <element signature="e#12011#12012#0" expanded="true" />
+            <element signature="e#12082#12083#0" expanded="true" />
+            <element signature="e#12121#12122#0" expanded="true" />
             <element signature="class#AlarmGridAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#13268#13269#0" expanded="true" />
-            <element signature="e#13319#13320#0" expanded="true" />
-            <element signature="e#13390#13391#0" expanded="true" />
-            <element signature="e#13448#13449#0" expanded="true" />
-            <element signature="e#13519#13520#0" expanded="true" />
-            <element signature="e#13558#13559#0" expanded="true" />
-            <element signature="method#calcDay#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#13464#13465#0" expanded="true" />
+            <element signature="e#13515#13516#0" expanded="true" />
+            <element signature="e#13586#13587#0" expanded="true" />
+            <element signature="e#13644#13645#0" expanded="true" />
+            <element signature="e#13715#13716#0" expanded="true" />
+            <element signature="e#13754#13755#0" expanded="true" />
             <element signature="method#commWithOpenAPIServer#0;class#MainActivity#0" expanded="false" />
-            <element signature="class#16298:16710" expanded="false" />
+            <element signature="class#16494:16906" expanded="false" />
             <element signature="method#weather#0;class#MainActivity#0" expanded="false" />
             <element signature="method#skyIconMatch#0;class#MainActivity#0" expanded="false" />
           </folding>
@@ -4099,39 +4115,33 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="38" column="37" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="37" />
           <folding>
-            <element signature="method#onInitialized#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onNewIntent#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#7422#8470#0" expanded="true" />
-            <element signature="e#8071#8391#0" expanded="true" />
-            <element signature="e#8390#8391#0" expanded="true" />
-            <element signature="e#8469#8470#0" expanded="true" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#7618#8666#0" expanded="true" />
+            <element signature="e#8267#8587#0" expanded="true" />
+            <element signature="e#8586#8587#0" expanded="true" />
+            <element signature="e#8665#8666#0" expanded="true" />
             <element signature="method#createInflaterDialogHouse#0;class#MainActivity#0" expanded="false" />
             <element signature="method#createInflaterDialogAlarm#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#10794#11076#0" expanded="true" />
-            <element signature="e#11075#11076#0" expanded="true" />
-            <element signature="e#11115#11303#0" expanded="true" />
-            <element signature="e#11302#11303#0" expanded="true" />
+            <element signature="e#10990#11272#0" expanded="true" />
+            <element signature="e#11271#11272#0" expanded="true" />
+            <element signature="e#11311#11499#0" expanded="true" />
+            <element signature="e#11498#11499#0" expanded="true" />
             <element signature="class#HouseworkGridAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#11635#11636#0" expanded="true" />
-            <element signature="e#11686#11687#0" expanded="true" />
-            <element signature="e#11757#11758#0" expanded="true" />
-            <element signature="e#11815#11816#0" expanded="true" />
-            <element signature="e#11886#11887#0" expanded="true" />
-            <element signature="e#11925#11926#0" expanded="true" />
+            <element signature="e#11831#11832#0" expanded="true" />
+            <element signature="e#11882#11883#0" expanded="true" />
+            <element signature="e#11953#11954#0" expanded="true" />
+            <element signature="e#12011#12012#0" expanded="true" />
+            <element signature="e#12082#12083#0" expanded="true" />
+            <element signature="e#12121#12122#0" expanded="true" />
             <element signature="class#AlarmGridAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#13268#13269#0" expanded="true" />
-            <element signature="e#13319#13320#0" expanded="true" />
-            <element signature="e#13390#13391#0" expanded="true" />
-            <element signature="e#13448#13449#0" expanded="true" />
-            <element signature="e#13519#13520#0" expanded="true" />
-            <element signature="e#13558#13559#0" expanded="true" />
-            <element signature="method#calcDay#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#13464#13465#0" expanded="true" />
+            <element signature="e#13515#13516#0" expanded="true" />
+            <element signature="e#13586#13587#0" expanded="true" />
+            <element signature="e#13644#13645#0" expanded="true" />
+            <element signature="e#13715#13716#0" expanded="true" />
+            <element signature="e#13754#13755#0" expanded="true" />
             <element signature="method#commWithOpenAPIServer#0;class#MainActivity#0" expanded="false" />
-            <element signature="class#16298:16710" expanded="false" />
+            <element signature="class#16494:16906" expanded="false" />
             <element signature="method#weather#0;class#MainActivity#0" expanded="false" />
             <element signature="method#skyIconMatch#0;class#MainActivity#0" expanded="false" />
           </folding>
@@ -4165,39 +4175,33 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="123" column="76" selection-start-line="123" selection-start-column="76" selection-end-line="123" selection-end-column="76" />
           <folding>
-            <element signature="method#onInitialized#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onNewIntent#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#7422#8470#0" expanded="true" />
-            <element signature="e#8071#8391#0" expanded="true" />
-            <element signature="e#8390#8391#0" expanded="true" />
-            <element signature="e#8469#8470#0" expanded="true" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#7618#8666#0" expanded="true" />
+            <element signature="e#8267#8587#0" expanded="true" />
+            <element signature="e#8586#8587#0" expanded="true" />
+            <element signature="e#8665#8666#0" expanded="true" />
             <element signature="method#createInflaterDialogHouse#0;class#MainActivity#0" expanded="false" />
             <element signature="method#createInflaterDialogAlarm#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#10794#11076#0" expanded="true" />
-            <element signature="e#11075#11076#0" expanded="true" />
-            <element signature="e#11115#11303#0" expanded="true" />
-            <element signature="e#11302#11303#0" expanded="true" />
+            <element signature="e#10990#11272#0" expanded="true" />
+            <element signature="e#11271#11272#0" expanded="true" />
+            <element signature="e#11311#11499#0" expanded="true" />
+            <element signature="e#11498#11499#0" expanded="true" />
             <element signature="class#HouseworkGridAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#11635#11636#0" expanded="true" />
-            <element signature="e#11686#11687#0" expanded="true" />
-            <element signature="e#11757#11758#0" expanded="true" />
-            <element signature="e#11815#11816#0" expanded="true" />
-            <element signature="e#11886#11887#0" expanded="true" />
-            <element signature="e#11925#11926#0" expanded="true" />
+            <element signature="e#11831#11832#0" expanded="true" />
+            <element signature="e#11882#11883#0" expanded="true" />
+            <element signature="e#11953#11954#0" expanded="true" />
+            <element signature="e#12011#12012#0" expanded="true" />
+            <element signature="e#12082#12083#0" expanded="true" />
+            <element signature="e#12121#12122#0" expanded="true" />
             <element signature="class#AlarmGridAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#13268#13269#0" expanded="true" />
-            <element signature="e#13319#13320#0" expanded="true" />
-            <element signature="e#13390#13391#0" expanded="true" />
-            <element signature="e#13448#13449#0" expanded="true" />
-            <element signature="e#13519#13520#0" expanded="true" />
-            <element signature="e#13558#13559#0" expanded="true" />
-            <element signature="method#calcDay#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#13464#13465#0" expanded="true" />
+            <element signature="e#13515#13516#0" expanded="true" />
+            <element signature="e#13586#13587#0" expanded="true" />
+            <element signature="e#13644#13645#0" expanded="true" />
+            <element signature="e#13715#13716#0" expanded="true" />
+            <element signature="e#13754#13755#0" expanded="true" />
             <element signature="method#commWithOpenAPIServer#0;class#MainActivity#0" expanded="false" />
-            <element signature="class#16298:16710" expanded="false" />
+            <element signature="class#16494:16906" expanded="false" />
             <element signature="method#weather#0;class#MainActivity#0" expanded="false" />
             <element signature="method#skyIconMatch#0;class#MainActivity#0" expanded="false" />
           </folding>
@@ -4224,39 +4228,33 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="62" selection-start-line="42" selection-start-column="62" selection-end-line="42" selection-end-column="62" />
           <folding>
-            <element signature="method#onInitialized#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onNewIntent#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#7422#8470#0" expanded="true" />
-            <element signature="e#8071#8391#0" expanded="true" />
-            <element signature="e#8390#8391#0" expanded="true" />
-            <element signature="e#8469#8470#0" expanded="true" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#7618#8666#0" expanded="true" />
+            <element signature="e#8267#8587#0" expanded="true" />
+            <element signature="e#8586#8587#0" expanded="true" />
+            <element signature="e#8665#8666#0" expanded="true" />
             <element signature="method#createInflaterDialogHouse#0;class#MainActivity#0" expanded="false" />
             <element signature="method#createInflaterDialogAlarm#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#10794#11076#0" expanded="true" />
-            <element signature="e#11075#11076#0" expanded="true" />
-            <element signature="e#11115#11303#0" expanded="true" />
-            <element signature="e#11302#11303#0" expanded="true" />
+            <element signature="e#10990#11272#0" expanded="true" />
+            <element signature="e#11271#11272#0" expanded="true" />
+            <element signature="e#11311#11499#0" expanded="true" />
+            <element signature="e#11498#11499#0" expanded="true" />
             <element signature="class#HouseworkGridAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#11635#11636#0" expanded="true" />
-            <element signature="e#11686#11687#0" expanded="true" />
-            <element signature="e#11757#11758#0" expanded="true" />
-            <element signature="e#11815#11816#0" expanded="true" />
-            <element signature="e#11886#11887#0" expanded="true" />
-            <element signature="e#11925#11926#0" expanded="true" />
+            <element signature="e#11831#11832#0" expanded="true" />
+            <element signature="e#11882#11883#0" expanded="true" />
+            <element signature="e#11953#11954#0" expanded="true" />
+            <element signature="e#12011#12012#0" expanded="true" />
+            <element signature="e#12082#12083#0" expanded="true" />
+            <element signature="e#12121#12122#0" expanded="true" />
             <element signature="class#AlarmGridAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#13268#13269#0" expanded="true" />
-            <element signature="e#13319#13320#0" expanded="true" />
-            <element signature="e#13390#13391#0" expanded="true" />
-            <element signature="e#13448#13449#0" expanded="true" />
-            <element signature="e#13519#13520#0" expanded="true" />
-            <element signature="e#13558#13559#0" expanded="true" />
-            <element signature="method#calcDay#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#13464#13465#0" expanded="true" />
+            <element signature="e#13515#13516#0" expanded="true" />
+            <element signature="e#13586#13587#0" expanded="true" />
+            <element signature="e#13644#13645#0" expanded="true" />
+            <element signature="e#13715#13716#0" expanded="true" />
+            <element signature="e#13754#13755#0" expanded="true" />
             <element signature="method#commWithOpenAPIServer#0;class#MainActivity#0" expanded="false" />
-            <element signature="class#16298:16710" expanded="false" />
+            <element signature="class#16494:16906" expanded="false" />
             <element signature="method#weather#0;class#MainActivity#0" expanded="false" />
             <element signature="method#skyIconMatch#0;class#MainActivity#0" expanded="false" />
           </folding>
@@ -4379,6 +4377,7 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -4407,14 +4406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30201343">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7894737">
-          <caret line="37" column="31" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -4461,44 +4452,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14851485">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/soma/albert/jachwibot/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22277227">
-          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.19314286">
+          <caret line="260" column="22" selection-start-line="260" selection-start-column="22" selection-end-line="260" selection-end-column="22" />
           <folding>
-            <element signature="method#onInitialized#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onCreate#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onActivityResult#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onNewIntent#0;class#MainActivity#0" expanded="false" />
-            <element signature="method#onResume#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#7422#8470#0" expanded="true" />
-            <element signature="e#8071#8391#0" expanded="true" />
-            <element signature="e#8390#8391#0" expanded="true" />
-            <element signature="e#8469#8470#0" expanded="true" />
-            <element signature="method#onClick#0;class#MainActivity#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#7618#8666#0" expanded="true" />
+            <element signature="e#8267#8587#0" expanded="true" />
+            <element signature="e#8586#8587#0" expanded="true" />
+            <element signature="e#8665#8666#0" expanded="true" />
             <element signature="method#createInflaterDialogHouse#0;class#MainActivity#0" expanded="false" />
             <element signature="method#createInflaterDialogAlarm#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#10794#11076#0" expanded="true" />
-            <element signature="e#11075#11076#0" expanded="true" />
-            <element signature="e#11115#11303#0" expanded="true" />
-            <element signature="e#11302#11303#0" expanded="true" />
+            <element signature="e#10990#11272#0" expanded="true" />
+            <element signature="e#11271#11272#0" expanded="true" />
+            <element signature="e#11311#11499#0" expanded="true" />
+            <element signature="e#11498#11499#0" expanded="true" />
             <element signature="class#HouseworkGridAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#11635#11636#0" expanded="true" />
-            <element signature="e#11686#11687#0" expanded="true" />
-            <element signature="e#11757#11758#0" expanded="true" />
-            <element signature="e#11815#11816#0" expanded="true" />
-            <element signature="e#11886#11887#0" expanded="true" />
-            <element signature="e#11925#11926#0" expanded="true" />
+            <element signature="e#11831#11832#0" expanded="true" />
+            <element signature="e#11882#11883#0" expanded="true" />
+            <element signature="e#11953#11954#0" expanded="true" />
+            <element signature="e#12011#12012#0" expanded="true" />
+            <element signature="e#12082#12083#0" expanded="true" />
+            <element signature="e#12121#12122#0" expanded="true" />
             <element signature="class#AlarmGridAdapter#0;class#MainActivity#0" expanded="false" />
-            <element signature="e#13268#13269#0" expanded="true" />
-            <element signature="e#13319#13320#0" expanded="true" />
-            <element signature="e#13390#13391#0" expanded="true" />
-            <element signature="e#13448#13449#0" expanded="true" />
-            <element signature="e#13519#13520#0" expanded="true" />
-            <element signature="e#13558#13559#0" expanded="true" />
-            <element signature="method#calcDay#0;class#MainActivity#0" expanded="false" />
+            <element signature="e#13464#13465#0" expanded="true" />
+            <element signature="e#13515#13516#0" expanded="true" />
+            <element signature="e#13586#13587#0" expanded="true" />
+            <element signature="e#13644#13645#0" expanded="true" />
+            <element signature="e#13715#13716#0" expanded="true" />
+            <element signature="e#13754#13755#0" expanded="true" />
             <element signature="method#commWithOpenAPIServer#0;class#MainActivity#0" expanded="false" />
-            <element signature="class#16298:16710" expanded="false" />
+            <element signature="class#16494:16906" expanded="false" />
             <element signature="method#weather#0;class#MainActivity#0" expanded="false" />
             <element signature="method#skyIconMatch#0;class#MainActivity#0" expanded="false" />
           </folding>
