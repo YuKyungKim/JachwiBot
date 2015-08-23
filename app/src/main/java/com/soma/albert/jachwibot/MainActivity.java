@@ -64,6 +64,7 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
     private ArrayList<HouseworkComponent> houseCompList = new ArrayList();
     private ArrayList<AlarmComponent> alarmCompList = new ArrayList();
     private Conversation conversation;
+    private AlarmCommunication alarmcommute;
     private Device mSpeakerDevice;
 
     public String simsimi_response="";
@@ -82,7 +83,7 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.albertConnectBtn:
-                Intent serviceIntent = new Intent(this, LuncherService.class);
+                Intent serviceIntent = new Intent(this, LauncherService.class);
                 startService(serviceIntent);
                 break;
             case R.id.Alarm_set:
@@ -95,13 +96,16 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
                 AlarmActivity.alarm_cancel(this, 1);
                 break;
             case R.id.conversationBtn:
-                conversation.start(mSpeakerDevice);
+                alarmcommute.start(mSpeakerDevice,"테스트");
+                alarmcommute.response_checker();
+//                conversation.start(mSpeakerDevice);
                 try {
                     Thread.sleep(300);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 check();
+                break;
         }
     }
     public void check(){
@@ -131,6 +135,8 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
 
         conversation= new Conversation(this);
 
+        alarmcommute = new AlarmCommunication(this);
+
         currentTempText = (TextView) findViewById(R.id.curtemptext);
         maxMinTempText = (TextView) findViewById(R.id.maxMinTempText);
         weatherIcon = (ImageView) findViewById(R.id.weatherImageIcon);
@@ -146,10 +152,10 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         lon = gps.getLongitude();
         //Log.i("gps", ""+lat+", "+lon);
 
-        commWithOpenAPIServer();
+//        commWithOpenAPIServer();
 
         // weather panel
-        weather();
+//        weather();
 
         // housework panel
         houseworkGridView = (GridView) findViewById(R.id.houseworkGridView);

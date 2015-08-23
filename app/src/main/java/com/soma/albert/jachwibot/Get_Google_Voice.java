@@ -18,6 +18,7 @@ import java.net.URLEncoder;
 public class Get_Google_Voice extends AsyncTask<String, ByteArrayOutputStream, ByteArrayOutputStream> {
     public ByteArrayOutputStream result_voice;
     private String response;
+
     // process background work
     protected ByteArrayOutputStream doInBackground(String... params) {
 
