@@ -1,10 +1,12 @@
 package com.soma.albert.jachwibot;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -53,9 +55,21 @@ public class DBManager extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void insert(String table_name, ContentValues contentValues) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert(table_name, null, contentValues);
+        db.close();
+    }
+
     public void update(String _query) {
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL(_query);
+        db.close();
+    }
+
+    public void update(String table_name, ContentValues contentValues, String whereClause, String[] whereArgs) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.update(table_name, contentValues, whereClause + "=?", whereArgs);
         db.close();
     }
 
@@ -65,34 +79,43 @@ public class DBManager extends SQLiteOpenHelper {
         db.close();
     }
 
-    public AlarmComponent selectAlarmDataById(int alarmId) {
-        SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("select * from ALARM_LIST WHERE alarm_type = '" + alarmId + "';", null);
-        AlarmComponent alarmComponent = null;
-        alarmComponent = new AlarmComponent(cursor.getInt(0), cursor.getString(1),
-                cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getInt(5));
+    public void delete(String table_name, String whereClause, String[] whereArgs) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(table_name, whereClause + "=?", whereArgs);
+        db.close();
+    }
 
+    public AlarmComponent selectAlarmDataById(int alarmId) {
+        AlarmComponent alarmComponent = null;
+        SQLiteDatabase db = getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("select * from ALARM_LIST WHERE alarm_type = '" + alarmId + "';", null);
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            alarmComponent = new AlarmComponent(cursor.getInt(1), cursor.getString(2), cursor.getString(3),
+                    cursor.getString(4), cursor.getInt(5), cursor.getInt(6));
+        }
+        cursor.close();
         return alarmComponent;
     }
 
     public ArrayList<AlarmComponent> selectAllAlarmData() {
         SQLiteDatabase db = getReadableDatabase();
-        ArrayList<AlarmComponent> alarmCompList = null;
+        ArrayList<AlarmComponent> alarmCompList = new ArrayList<AlarmComponent>();
 
         Cursor cursor = db.rawQuery("select * from ALARM_LIST;", null);
-        while(cursor.moveToNext()) {
-            AlarmComponent alarmComponent = null;
-            alarmComponent = new AlarmComponent(cursor.getInt(0), cursor.getString(1),
-                    cursor.getString(2), cursor.getString(3), cursor.getInt(4), cursor.getInt(5));
+        while (cursor.moveToNext()) {
+            AlarmComponent alarmComponent = new AlarmComponent(cursor.getInt(1), cursor.getString(2), cursor.getString(3),
+                    cursor.getString(4), cursor.getInt(5), cursor.getInt(6));
             alarmCompList.add(alarmComponent);
         }
-
+        cursor.close();
         return alarmCompList;
     }
 
     public Call selectCallDataById(int callId) {
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("select * from CALL_LIST WHERE call_id = '"+callId+"';", null);
+        Cursor cursor = db.rawQuery("select * from CALL_LIST WHERE call_id = '" + callId + "';", null);
         Call call = null;
         call = new Call(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
                 cursor.getInt(3), cursor.getString(4));
@@ -104,7 +127,7 @@ public class DBManager extends SQLiteOpenHelper {
         ArrayList<Call> callList = null;
 
         Cursor cursor = db.rawQuery("select * from CALL_LIST;", null);
-        while(cursor.moveToNext()) {
+        while (cursor.moveToNext()) {
             Call call = null;
             call = new Call(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
                     cursor.getInt(3), cursor.getString(4));
@@ -116,7 +139,7 @@ public class DBManager extends SQLiteOpenHelper {
 
     public HouseworkComponent selectHouseworkById(int houseworkId) {
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("select * from HOUSEWORK_LIST WHERE housework_id = '"+houseworkId+"';", null);
+        Cursor cursor = db.rawQuery("select * from HOUSEWORK_LIST WHERE housework_id = '" + houseworkId + "';", null);
         HouseworkComponent houseworkComponent = null;
         houseworkComponent = new HouseworkComponent(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
         return houseworkComponent;
@@ -127,7 +150,7 @@ public class DBManager extends SQLiteOpenHelper {
         ArrayList<HouseworkComponent> houseworkList = null;
 
         Cursor cursor = db.rawQuery("select * from HOUSEWORK_LIST;", null);
-        while(cursor.moveToNext()) {
+        while (cursor.moveToNext()) {
             HouseworkComponent houseworkComponent = null;
             houseworkComponent = new HouseworkComponent(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
             houseworkList.add(houseworkComponent);

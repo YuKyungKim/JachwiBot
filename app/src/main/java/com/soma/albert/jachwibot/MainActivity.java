@@ -112,16 +112,24 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
     public void check(){
 
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case ALARM_REQUEST:
                 if (resultCode == RESULT_OK) {
-                    int Alarm_data = data.getIntExtra("Alarm_ID", -1);
-                    Log.d("Alarm", "ID = " + String.valueOf(Alarm_data));
+                    int Alarm_data = data.getIntExtra("alarm_type", -1);
+                    Log.d("Alarm", "alarm_type = " + String.valueOf(Alarm_data));
                 }
                 break;
         }
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        Log.d("Alarm", "alarm_type = " + String.valueOf(intent.getIntExtra("alarm_type", -1)) +
+                " alarm_name = " + intent.getStringExtra("alarm_name") +
+                " isRepeat = " + String.valueOf(intent.getBooleanExtra("isRepeat", false)));
     }
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -171,10 +179,8 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         alarmGridView.setAdapter(new alarmGridAdapter());
         // db data call - alarm
         ArrayList<AlarmComponent> alarmList = dbManager.selectAllAlarmData();
-        if(alarmList != null) {
-            for (int i = 0; i < alarmList.size(); i++) {
-                alarmCompList.add(alarmList.get(i));
-            }
+        for (int i = 0; i < alarmList.size(); i++) {
+            alarmCompList.add(alarmList.get(i));
         }
         // TODO 추가 버튼 만들것.
 
@@ -280,12 +286,6 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
             */
             return convertView;
         }
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        Log.d("Alarm", "ID = " + String.valueOf(intent.getIntExtra("ID", -1)) +
-                " Repeat = " + String.valueOf(intent.getBooleanExtra("Repeat", false)));
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
