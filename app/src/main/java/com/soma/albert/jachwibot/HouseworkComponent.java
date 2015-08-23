@@ -5,18 +5,18 @@ package com.soma.albert.jachwibot;
  */
 public class HouseworkComponent {
     private int houseworkId;
-    private String houseworkText;
+    private int houseworkType;
     private String lastDay;
 
     public HouseworkComponent() {
         this.houseworkId = 0;
-        this.houseworkText = null;
+        this.houseworkType = 0;
         this.lastDay = null;
     }
 
-    public HouseworkComponent(int houseworkId, String houseworkText, String lastDay) {
+    public HouseworkComponent(int houseworkId, int houseworkText, String lastDay) {
         this.houseworkId = houseworkId;
-        this.houseworkText = houseworkText;
+        this.houseworkType = houseworkText;
         this.lastDay = lastDay;
     }
 
@@ -28,12 +28,12 @@ public class HouseworkComponent {
         this.houseworkId = houseworkId;
     }
 
-    public String getHouseworkText() {
-        return houseworkText;
+    public int getHouseworkType() {
+        return houseworkType;
     }
 
-    public void setHouseworkText(String houseworkText) {
-        this.houseworkText = houseworkText;
+    public void setHouseworkType(int houseworkType) {
+        this.houseworkType = houseworkType;
     }
 
     public String getLastDay() {
@@ -42,5 +42,14 @@ public class HouseworkComponent {
 
     public void setLastDay(String lastDay) {
         this.lastDay = lastDay;
+    }
+
+    @Override
+    public String toString() {
+        return "HouseworkComponent{" +
+                "houseworkId=" + houseworkId +
+                ", houseworkType=" + houseworkType +
+                ", lastDay='" + lastDay + '\'' +
+                '}';
     }
 }
