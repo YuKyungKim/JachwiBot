@@ -2,11 +2,53 @@
 <items version="2" >
 
     <item
+        jar="/home/whee6409/AndroidStudioProjects/JachwiBot/app/libs/json_simple-1.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="5e303a03d04e6788dddfa3655272580ae0fc13bb">
+        <dex dex="/home/whee6409/AndroidStudioProjects/JachwiBot/app/build/intermediates/pre-dexed/debug/json_simple-1.1-2f38b130aeb4eb34efc99896ca0cef0108775262.jar" />
+    </item>
+    <item
+        jar="/home/whee6409/AndroidStudioProjects/JachwiBot/app/build/intermediates/exploded-aar/JachwiBot/orgsmartrobotandroid8140/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ab900269eed8e24816b872fcfc325e4b578ba43e">
+        <dex dex="/home/whee6409/AndroidStudioProjects/JachwiBot/app/build/intermediates/pre-dexed/debug/classes-e8d3ac333bcc65a08c1d366c2737cfa0fa9adfc4.jar" />
+    </item>
+    <item
+        jar="/home/whee6409/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/1.3.9/40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf/jsr305-1.3.9.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf">
+        <dex dex="/home/whee6409/AndroidStudioProjects/JachwiBot/app/build/intermediates/pre-dexed/debug/jsr305-1.3.9-2509fab150a6fbc8829217527c748e430def3263.jar" />
+    </item>
+    <item
+        jar="/home/whee6409/AndroidStudioProjects/JachwiBot/planetxoauthandroidsdk/build/libs/planetxoauthandroidsdk.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="b40cc14cede79eb2e2b5c7ec1e0139f8bbb33e58">
+        <dex dex="/home/whee6409/AndroidStudioProjects/JachwiBot/app/build/intermediates/pre-dexed/debug/planetxoauthandroidsdk-821cf359b99e8dd4c8663f7de7943d421425bde8.jar" />
+    </item>
+    <item
         jar="/home/whee6409/AndroidStudioProjects/JachwiBot/app/jl1.0.1.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="33c346fe3c5f75dfbfb477e1f3d8446427633890">
         <dex dex="/home/whee6409/AndroidStudioProjects/JachwiBot/app/build/intermediates/pre-dexed/debug/jl1.0.1-e56a3b3d1ad044a2177759ba3669a9d7731a135e.jar" />
+    </item>
+    <item
+        jar="/home/whee6409/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/11.0.1/57b40a943725d43610c898ac0169adf1b2d55742/guava-11.0.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57b40a943725d43610c898ac0169adf1b2d55742">
+        <dex dex="/home/whee6409/AndroidStudioProjects/JachwiBot/app/build/intermediates/pre-dexed/debug/guava-11.0.1-cdb55b523151dcf30367789468de3341294ce513.jar" />
+    </item>
+    <item
+        jar="/home/whee6409/AndroidStudioProjects/JachwiBot/planetxopenapiandroidsdk/build/libs/planetxopenapiandroidsdk.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="a582d3077f115ed433dd16f64aa5ef4e7c481f71">
+        <dex dex="/home/whee6409/AndroidStudioProjects/JachwiBot/app/build/intermediates/pre-dexed/debug/planetxopenapiandroidsdk-88fcd64905ed2f866a04df95a7d3d0f9b4e03d4b.jar" />
     </item>
 
 </items>

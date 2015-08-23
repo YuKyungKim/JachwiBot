@@ -22,7 +22,7 @@ public class HouseworkActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_housework_plus);
-        setTitle("자취봇");
+        setTitle("집안일 추가");
 
         dbManager = new DBManager(getApplicationContext(), "jachwibot.db", null, 1);
 

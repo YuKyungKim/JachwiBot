@@ -22,8 +22,7 @@ public class DBManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE ALARM_LIST(" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "alarm_type INTEGER," +
+                "alarm_type INTEGER PRIMARY KEY," +
                 "alarm_name TEXT," +
                 "isRepeat TEXT, " +
                 "week TEXT," +
@@ -92,8 +91,8 @@ public class DBManager extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("select * from ALARM_LIST WHERE alarm_type = '" + alarmId + "';", null);
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
-            alarmComponent = new AlarmComponent(cursor.getInt(1), cursor.getString(2), cursor.getString(3),
-                    cursor.getString(4), cursor.getInt(5), cursor.getInt(6));
+            alarmComponent = new AlarmComponent(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
+                    cursor.getString(3), cursor.getInt(4), cursor.getInt(5));
         }
         cursor.close();
         return alarmComponent;
@@ -105,8 +104,8 @@ public class DBManager extends SQLiteOpenHelper {
 
         Cursor cursor = db.rawQuery("select * from ALARM_LIST;", null);
         while (cursor.moveToNext()) {
-            AlarmComponent alarmComponent = new AlarmComponent(cursor.getInt(1), cursor.getString(2), cursor.getString(3),
-                    cursor.getString(4), cursor.getInt(5), cursor.getInt(6));
+            AlarmComponent alarmComponent = new AlarmComponent(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
+                    cursor.getString(3), cursor.getInt(4), cursor.getInt(5));
             alarmCompList.add(alarmComponent);
         }
         cursor.close();

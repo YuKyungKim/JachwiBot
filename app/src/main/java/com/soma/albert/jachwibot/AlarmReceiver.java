@@ -24,14 +24,14 @@ public class AlarmReceiver extends BroadcastReceiver {
         TempIntent.putExtra("isRepeat", repeat);
         TempIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-        //오늘이 알람을 실행할 요일인지 확인
-        if (Week[calendar.get(Calendar.DAY_OF_WEEK)]) {
-            context.startActivity(TempIntent);
-        }
-        else if(!repeat) {
+        if(!repeat) {
             //1회용 알람인경우 DB에서 삭제
             DBManager dbManager = new DBManager(context, "jachwibot.db", null, 1);
             dbManager.delete("ALARM_LIST", "alarm_type", new String[]{String.valueOf(intent.getIntExtra("ID", -1))});
+            context.startActivity(TempIntent);
+        }
+        else if (Week[calendar.get(Calendar.DAY_OF_WEEK)]) {
+            //오늘이 알람을 실행할 요일인지 확인
             context.startActivity(TempIntent);
         }
     }

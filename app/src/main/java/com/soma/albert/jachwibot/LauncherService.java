@@ -9,14 +9,14 @@ import android.util.Log;
 import org.roboid.robot.Robot;
 import org.smartrobot.android.SmartRobot;
 
-public class LuncherService extends Service{
+public class LauncherService extends Service{
 
     SmartRobot robot;
 
     public boolean waitstatus = true;
     private static final String TAG = "LauncherService";
 
-    public LuncherService() {
+    public LauncherService() {
 
     }
 

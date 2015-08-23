@@ -10,7 +10,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -35,7 +34,6 @@ import org.roboid.robot.Device;
 import org.roboid.robot.Robot;
 import org.smartrobot.android.RobotActivity;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -66,7 +64,7 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
     // TODO 예보 따로 따오기..
 
     // 집안일 패널과 알람 패널
-    GridView  houseworkGridView, alarmGridView;
+    GridView houseworkGridView, alarmGridView;
     private ArrayList<HouseworkComponent> houseCompList = new ArrayList();
     private ArrayList<AlarmComponent> alarmCompList = new ArrayList();
     private AlertDialog dialog = null;
@@ -81,158 +79,15 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
     private double lon;
 
     private static final int ALARM_REQUEST = 10;
+    private Robot_Alarm robot_alarm;
 
     @Override
     public void onInitialized(Robot robot) {
         mSpeakerDevice = robot.findDeviceById(Albert.EFFECTOR_SPEAKER);
+        robot_alarm = new Robot_Alarm(robot);
     }
 
     @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.albertConnectBtn:
-                Intent serviceIntent = new Intent(this, LuncherService.class);
-                startService(serviceIntent);
-                break;
-            case R.id.Alarm_set:
-                Intent intent = new Intent(this, AlarmActivity.class);
-                intent.putExtra("Class", this.getClass());
-                startActivityForResult(intent, ALARM_REQUEST);
-                break;
-            case R.id.Alarm_Cancel:
-                AlarmActivity.alarm_cancel(this, AlarmActivity.MORNING_CALL);
-                AlarmActivity.alarm_cancel(this, 1);
-                break;
-            case R.id.conversationBtn:
-                conversation.start(mSpeakerDevice);
-                try {
-                    Thread.sleep(300);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                check();
-                break;
-
-            // TODO 집안일 및 알람 추가 버튼 만들기
-
-        }
-    }
-
-    public void check() {
-
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            case ALARM_REQUEST:
-                if (resultCode == RESULT_OK) {
-                    int Alarm_data = data.getIntExtra("alarm_type", -1);
-                    Log.d("Alarm", "alarm_type = " + String.valueOf(Alarm_data));
-                }
-                break;
-        }
-    }
-
-    @Override
-    protected void onNewIntent(Intent intent) {
-        Log.d("Alarm", "alarm_type = " + String.valueOf(intent.getIntExtra("alarm_type", -1)) +
-                " alarm_name = " + intent.getStringExtra("alarm_name") +
-                " isRepeat = " + String.valueOf(intent.getBooleanExtra("isRepeat", false)));
-    }
-
-    protected void onResume() {
-        super.onResume();
-        // db
-        final DBManager dbManager = new DBManager(getApplicationContext(), "jachwibot.db", null, 1);
-
-        // gps lat, lon data communicate
-        gps = new GpsInfo(MainActivity.this);
-        lat = gps.getLatitude();
-        lon = gps.getLongitude();
-        //Log.i("gps", ""+lat+", "+lon);
-
-        commWithOpenAPIServer();
-
-        // weather panel
-        weather();
-
-
-        // housework panel
-        houseworkGridView = (GridView) findViewById(R.id.houseworkGridView);
-        final HouseworkGridAdapter houseworkGridAdapter = new HouseworkGridAdapter();
-        houseworkGridView.setAdapter(houseworkGridAdapter);
-        // db data call - housework
-        final ArrayList<HouseworkComponent> houseworkList = dbManager.selectAllHoseworkData();
-        houseCompList.clear();
-        if(houseworkList != null) {
-            for (int i = 0; i < houseworkList.size(); i++) {
-                houseCompList.add(houseworkList.get(i));
-            }
-        }
-        // 추가 버튼
-        HouseworkComponent plus = new HouseworkComponent(0, 0, null);
-        houseCompList.add(plus);
-
-        houseworkGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getLastVisiblePosition() == position) {
-                    Intent intent = new Intent(view.getContext(), HouseworkActivity.class);
-                    startActivityForResult(intent, 0);
-                } else {
-                    dialog = createInflaterDialog(dbManager, houseCompList.get(position).getHouseworkId(), position);
-                    dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                        @Override
-                        public void onDismiss(DialogInterface dialog) {
-                            //Log.i("dismiss", "call");
-                            houseworkGridAdapter.notifyDataSetChanged();
-                        }
-                    });
-                    dialog.show();
-
-                }
-            }
-        });
-
-
-        // alarm panel
-        alarmGridView = (GridView) findViewById(R.id.alarmGridView);
-        alarmGridView.setAdapter(new alarmGridAdapter());
-        // db data call - alarm
-        ArrayList<AlarmComponent> alarmList = dbManager.selectAllAlarmData();
-        if(alarmList != null) {
-            for (int i = 0; i < alarmList.size(); i++) {
-                alarmCompList.add(alarmList.get(i));
-            }
-        }
-
-        // TODO 추가 버튼 만들것.
-
-    }
-
-    private AlertDialog createInflaterDialog(final DBManager dbManager, final int houseCmpId, final int position) {
-        final View innerView = getLayoutInflater().inflate(R.layout.housework_dialog, null);
-        AlertDialog.Builder ab = new AlertDialog.Builder(this);
-        ab.setTitle("삭제 확인");
-        ab.setView(innerView);
-        ab.setPositiveButton("삭제", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dbManager.delete("DELETE FROM HOUSEWORK_LIST WHERE housework_id = " + houseCmpId + ";");
-                houseCompList.remove(position);
-            }
-        });
-
-        ab.setNegativeButton("취소", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        return ab.create();
-    }
-
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
@@ -257,9 +112,192 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         // 알버트랑 대화하기
         Button conversationBtn = (Button) findViewById(R.id.conversationBtn);
         conversationBtn.setOnClickListener(this);
-        // 알람 추가 버튼
-        findViewById(R.id.Alarm_set).setOnClickListener(this);
-        findViewById(R.id.Alarm_Cancel).setOnClickListener(this);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case ALARM_REQUEST:
+                if (resultCode == RESULT_OK) {
+                    int Alarm_data = data.getIntExtra("alarm_type", -1);
+                    Log.d("Alarm", "alarm_type = " + String.valueOf(Alarm_data));
+                }
+                break;
+        }
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        Log.d("Alarm", "alarm_type = " + String.valueOf(intent.getIntExtra("alarm_type", -1)) +
+                " alarm_name = " + intent.getStringExtra("alarm_name") +
+                " isRepeat = " + String.valueOf(intent.getBooleanExtra("isRepeat", false)));
+        if(robot_alarm != null){
+            robot_alarm.set_Alram_status(true);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // db
+        final DBManager dbManager = new DBManager(getApplicationContext(), "jachwibot.db", null, 1);
+
+        // gps lat, lon data communicate
+        gps = new GpsInfo(MainActivity.this);
+        lat = gps.getLatitude();
+        lon = gps.getLongitude();
+        //Log.i("gps", ""+lat+", "+lon);
+
+        //commWithOpenAPIServer();
+
+        // weather panel
+        //weather();
+
+
+        // housework panel
+        houseworkGridView = (GridView) findViewById(R.id.houseworkGridView);
+        final HouseworkGridAdapter houseworkGridAdapter = new HouseworkGridAdapter();
+        houseworkGridView.setAdapter(houseworkGridAdapter);
+        // db data call - housework
+        ArrayList<HouseworkComponent> houseworkList = dbManager.selectAllHoseworkData();
+        houseCompList.clear();
+        for (int i = 0; i < houseworkList.size(); i++) {
+            houseCompList.add(houseworkList.get(i));
+        }
+
+
+        // alarm panel
+        alarmGridView = (GridView) findViewById(R.id.alarmGridView);
+        final AlarmGridAdapter alarmGridAdapter = new AlarmGridAdapter();
+        alarmGridView.setAdapter(alarmGridAdapter);
+        // db data call - alarm
+        ArrayList<AlarmComponent> alarmList = dbManager.selectAllAlarmData();
+        alarmCompList.clear();
+        for (int i = 0; i < alarmList.size(); i++) {
+            alarmCompList.add(alarmList.get(i));
+        }
+
+
+        // 추가 버튼
+        HouseworkComponent plus = new HouseworkComponent(0, 0, null);
+        houseCompList.add(plus);
+        houseworkGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (parent.getLastVisiblePosition() == position) {
+                    Intent intent = new Intent(view.getContext(), HouseworkActivity.class);
+                    startActivityForResult(intent, 0);
+                } else {
+                    dialog = createInflaterDialogHouse(dbManager, houseCompList.get(position).getHouseworkId(), position);
+                    dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialog) {
+                            //Log.i("dismiss", "call");
+                            houseworkGridAdapter.notifyDataSetChanged();
+                        }
+                    });
+                    dialog.show();
+
+                }
+            }
+        });
+
+        // 추가 버튼
+        AlarmComponent plusAlarm = new AlarmComponent(-1, null, null, null, 0, 0);
+        alarmCompList.add(plusAlarm);
+        alarmGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (parent.getLastVisiblePosition() == position) {
+                    Intent intent = new Intent(view.getContext(), AlarmActivity.class);
+                    intent.putExtra("Class", view.getContext().getClass());
+                    startActivityForResult(intent, ALARM_REQUEST);
+                } else {
+                    dialog = createInflaterDialogAlarm(dbManager, alarmCompList.get(position).getAlarmtype(), position);
+                    dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialog) {
+                            //Log.i("dismiss", "call");
+                            alarmGridAdapter.notifyDataSetChanged();
+                        }
+                    });
+                    dialog.show();
+                }
+            }
+        });
+
+
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.albertConnectBtn:
+                Intent serviceIntent = new Intent(this, LauncherService.class);
+                startService(serviceIntent);
+                break;
+            case R.id.Alarm_set:
+                Intent intent = new Intent(this, AlarmActivity.class);
+                intent.putExtra("Class", this.getClass());
+                startActivityForResult(intent, ALARM_REQUEST);
+                break;
+            case R.id.Alarm_Cancel:
+                AlarmActivity.alarm_cancel(this, AlarmActivity.MORNING_CALL);
+                AlarmActivity.alarm_cancel(this, 1);
+                break;
+            case R.id.conversationBtn:
+                conversation.start(mSpeakerDevice);
+                try {
+                    Thread.sleep(300);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                break;
+        }
+    }
+
+    private AlertDialog createInflaterDialogHouse(final DBManager dbManager, final int houseCmpId, final int position) {
+        final View innerView = getLayoutInflater().inflate(R.layout.dialog, null);
+        AlertDialog.Builder ab = new AlertDialog.Builder(this);
+        ab.setTitle("삭제 확인");
+        ab.setView(innerView);
+        ab.setPositiveButton("삭제", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dbManager.delete("HOUSEWORK_LIST", "housework_id", new String[]{String.valueOf(houseCmpId)});
+                houseCompList.remove(position);
+            }
+        });
+
+        ab.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        return ab.create();
+    }
+    private AlertDialog createInflaterDialogAlarm(final DBManager dbManager, final int alarmtype, final int position) {
+        final View innerView1 = getLayoutInflater().inflate(R.layout.dialog, null);
+        AlertDialog.Builder ab = new AlertDialog.Builder(this);
+        ab.setTitle("삭제 확인");
+        ab.setView(innerView1);
+        ab.setPositiveButton("삭제", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alarmCompList.remove(position);
+                AlarmActivity.alarm_cancel(getApplicationContext(), alarmtype);
+            }
+        });
+
+        ab.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        return ab.create();
     }
 
     public class HouseworkGridAdapter extends BaseAdapter {
@@ -308,40 +346,10 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
             return convertView;
         }
     }
-
-    public String calcDay(String lastDate) {
-        Calendar todayCal = Calendar.getInstance();
-        Calendar lastdayCal = Calendar.getInstance();
-
-        StringTokenizer strTk = new StringTokenizer(lastDate, ".");
-        int lastYear = Integer.parseInt(strTk.nextToken());
-        int lastMonth = Integer.parseInt(strTk.nextToken());
-        int lastDay = Integer.parseInt(strTk.nextToken());
-
-        lastdayCal.set(lastYear, lastMonth - 1, lastDay);
-
-        long delta = todayCal.getTimeInMillis() - lastdayCal.getTimeInMillis() ;
-
-        lastdayCal.setTimeInMillis(delta);
-
-        int date = lastdayCal.get(Calendar.DAY_OF_YEAR) + 1;
-
-        long gap = (delta / 86400000);
-
-        if (gap == 0) {
-            return "오늘";
-        } else if (gap == 1) {
-            return "어제";
-        } else {
-            return "" + gap  + "일 전";
-        }
-
-    }
-
-    public class alarmGridAdapter extends BaseAdapter {
+    public class AlarmGridAdapter extends BaseAdapter {
         LayoutInflater inflater;
 
-        public alarmGridAdapter() {
+        public AlarmGridAdapter() {
             inflater = (LayoutInflater) act.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
 
@@ -370,33 +378,49 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
             TextView cmpText = (TextView) convertView.findViewById(R.id.cmpText);
 
             AlarmComponent cmp = alarmCompList.get(position);
-            /*
-            if (cmp.getAlarmId() == 1) {
+
+            if (cmp.getAlarmtype() == -1) {
+                cmpIcon.setImageResource(R.drawable.plus);
+                cmpText.setText("추가");
+            } else if (cmp.getAlarmtype() == 0) {
                 cmpIcon.setImageResource(R.drawable.alarm_clock);
-                cmpText.setText(cmp.getAlarmText());
-            } else if (cmp.getAlarmId() == 2) {
+                cmpText.setText("모닝콜");
+            } else {
                 cmpIcon.setImageResource(R.drawable.clock);
-                cmpText.setText(cmp.getAlarmText());
-            } else if (cmp.getAlarmId() == 3) {
-                cmpIcon.setImageResource(R.drawable.calendar);
-                cmpText.setText(cmp.getAlarmText());
+                cmpText.setText(cmp.getAlarmname());
             }
-            */
+
             return convertView;
         }
     }
 
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    public String calcDay(String lastDate) {
+        Calendar todayCal = Calendar.getInstance();
+        Calendar lastdayCal = Calendar.getInstance();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        StringTokenizer strTk = new StringTokenizer(lastDate, ".");
+        int lastYear = Integer.parseInt(strTk.nextToken());
+        int lastMonth = Integer.parseInt(strTk.nextToken());
+        int lastDay = Integer.parseInt(strTk.nextToken());
+
+        lastdayCal.set(lastYear, lastMonth - 1, lastDay);
+
+        long delta = todayCal.getTimeInMillis() - lastdayCal.getTimeInMillis();
+
+        lastdayCal.setTimeInMillis(delta);
+
+        int date = lastdayCal.get(Calendar.DAY_OF_YEAR) + 1;
+
+        long gap = (delta / 86400000);
+
+        if (gap == 0) {
+            return "오늘";
+        } else if (gap == 1) {
+            return "어제";
+        } else {
+            return "" + gap + "일 전";
         }
-        return super.onOptionsItemSelected(item);
+
     }
 
     public void commWithOpenAPIServer() {
@@ -421,7 +445,6 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
             e.printStackTrace();
         }
     }
-
     // Opean API 통신시 사용하는 비동기 Listener
     RequestListener reqListener = new RequestListener() {
         @Override
@@ -484,7 +507,6 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
             ;
         };
     }
-
     public void skyIconMatch(String skyCode) {
         if (skyCode.equals("SKY_A00")) {
             // 상태없음

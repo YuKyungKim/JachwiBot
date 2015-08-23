@@ -27,10 +27,13 @@ public class AlarmActivity extends Activity {
 
     public static final int MORNING_CALL = 0;
 
+    static DBManager dbManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm);
+        dbManager = new DBManager(getApplicationContext(), "jachwibot.db", null, 1);
         setTitle("알람 추가");
 
         //현재 시간으로 설정
@@ -97,9 +100,6 @@ public class AlarmActivity extends Activity {
             case R.id.repeat:
                 repeat_click();
                 break;
-            case R.id.name:
-                Log.d("asde", "asde");
-                break;
         }
     }
 
@@ -131,13 +131,11 @@ public class AlarmActivity extends Activity {
         am.cancel(sender);
 
         //DB에서 알람을 삭제
-        DBManager dbManager = new DBManager(context, "jachwibot.db", null, 1);
         dbManager.delete("ALARM_LIST", "alarm_type", new String[]{String.valueOf(id)});
     }
 
     private int alarm_set(boolean morning_call, boolean repeat, boolean Week[], String name, Calendar calendar) {
         AlarmManager am = (AlarmManager) getBaseContext().getSystemService(Context.ALARM_SERVICE);
-        DBManager dbManager = new DBManager(this, "jachwibot.db", null, 1);
         int ID;
 
         //모닝콜이 아닌경우 새로운 알람의 ID를 구한다.
@@ -160,7 +158,7 @@ public class AlarmActivity extends Activity {
         Intent intent = new Intent(getBaseContext(), AlarmReceiver.class);
         intent.putExtra("Class", this.getIntent().getSerializableExtra("Class"));
         intent.putExtra("alarm_type", ID);
-        intent.putExtra("alarm_name", repeat);
+        intent.putExtra("alarm_name", name);
         intent.putExtra("isRepeat", repeat);
         intent.putExtra("week", Week);
 
