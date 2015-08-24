@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.provider.CalendarContract;
 import android.text.format.DateFormat;
+import android.util.Log;
 
 import java.text.Format;
 import java.util.Date;
@@ -21,7 +22,7 @@ public class CalendarAlarm {
     public CalendarAlarm(Context current){
         context=current;
     }
-    public String get_current_schedule() {//null값이 리턴되면 그날에 일정이 없음. string은 그날의 첫 일정
+    public String get_first_schedule() {//null값이 리턴되면 그날에 일정이 없음. string은 그날의 첫 일정
 
 
         mCursor = context.getContentResolver().query(
@@ -41,11 +42,10 @@ public class CalendarAlarm {
         CharSequence s = df.format(d.getTime());
         long currentdate = d.getTime();
         while (!mCursor.isLast()) {
-
+            mCursor.moveToNext();
+            Log.d("Calendar", df.format(start).toString());
             try {
                 title = mCursor.getString(0);
-
-
                 start = mCursor.getLong(1);
 
 
@@ -53,15 +53,57 @@ public class CalendarAlarm {
 //ignore
             }
 
-            if (df.format(start) == s) {
-                return ((title + " on " + df.format(start) + " at " + tf.format(start)).toString());
+            if (df.format(start).toString().equals(s.toString())) {
+                return ((title + "가 " + tf.format(start) + "에 있습니다.").toString());
             }
-            if (currentdate < start) {
-                break;
-            }
-            mCursor.moveToNext();
         }
         return (null);
     }
 
+    public String get_last_schedule() {//null값이 리턴되면 그날에 일정이 없음. string은 그날의 첫 일정
+
+        mCursor = context.getContentResolver().query(
+                CalendarContract.Events.CONTENT_URI, COLS, null, null, null);
+        mCursor.moveToFirst();
+
+
+        String title = "N/A";
+
+
+        Long start = 0L;
+
+        Format df = DateFormat.getDateFormat(this.context);
+        Format tf = DateFormat.getTimeFormat(this.context);
+
+        Date d = new Date();
+        CharSequence s = df.format(d.getTime());
+        long currentdate = d.getTime();
+        long last_time=0;
+        String r_title, r_time;
+        while (!mCursor.isLast()) {
+            mCursor.moveToNext();
+            Log.d("Calendar", df.format(start).toString());
+            try {
+                title = mCursor.getString(0);
+                start = mCursor.getLong(1);
+
+
+            } catch (Exception e) {
+//ignore
+            }
+
+            if (df.format(start).toString().equals(s.toString()) && last_time < start)
+            {
+                r_title=title;
+                r_time=tf.format(start);
+                last_time=start;
+            }
+        }
+        if(last_time!=0) {
+            return (("마지막 일정 "+title + "가 " + tf.format(start) + "에 있습니다.").toString());
+        }
+        else {
+            return (null);
+        }
+    }
 }

@@ -72,7 +72,11 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
     // bottom panel - conversation with albert
     private Conversation conversation;
     private AlarmCommunication alarmcommute;
+    private CalendarAlarm calendaralarm;
+    private Get_Google_Voice get_google_voice = new Get_Google_Voice();
     private Device mSpeakerDevice;
+    private Decoder_pcm decoder;
+    private RobotSpeaker robotspeaker;
     public String simsimi_response = "";
 
     // gps
@@ -86,20 +90,40 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
     public void onInitialized(Robot robot) {
         mSpeakerDevice = robot.findDeviceById(Albert.EFFECTOR_SPEAKER);
         robot_alarm = new Robot_Alarm(robot);
+        robot_alarm.setCallBackEvent(callBackEvent);
     }
 
-    @Override
+    private Robot_Alarm.CallBackEvent callBackEvent = new Robot_Alarm.CallBackEvent(){
+        @Override
+        public void Robot_Alarm_Stop() {
+            Log.d("Robot_Alarm", "stop");
+            String result = calendaralarm.get_first_schedule();
+            if(result==null){
+                result="오늘 일정이 없습니다.";
+            }
+            get_google_voice.execute(result);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+
+            }
+            robotspeaker = new RobotSpeaker(mSpeakerDevice);
+            robotspeaker.start(get_google_voice.get_result());
+        }
+    };
+
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
 
         //get Context to CalendarAlarm
-        CalendarAlarm calendar = new CalendarAlarm(this);
+        calendaralarm = new CalendarAlarm(this);
 
         setTitle("자취봇");
 
         //get Context to Decoder
-        Decoder_pcm decoder = new Decoder_pcm(this);
+        decoder = new Decoder_pcm(this);
         //get Context to Decoder
         conversation = new Conversation(this);
 
@@ -253,11 +277,6 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
                 break;
             case R.id.conversationBtn:
                 conversation.start(mSpeakerDevice);
-                try {
-                    Thread.sleep(300);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
                 break;
         }
     }
