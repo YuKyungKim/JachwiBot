@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="android">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/planetxoauthandroidsdk/libs/android.jar!/" />
+      <root url="jar://$PROJECT_DIR$/planetxopenapiandroidsdk/libs/android.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

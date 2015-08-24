@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JachwiBot.iml" filepath="$PROJECT_DIR$/JachwiBot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JachwiBot before.iml" filepath="$PROJECT_DIR$/JachwiBot before.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/orgsmartrobotandroid8140/orgsmartrobotandroid8140.iml" filepath="$PROJECT_DIR$/orgsmartrobotandroid8140/orgsmartrobotandroid8140.iml" />
       <module fileurl="file://$PROJECT_DIR$/planetxoauthandroidsdk/planetxoauthandroidsdk.iml" filepath="$PROJECT_DIR$/planetxoauthandroidsdk/planetxoauthandroidsdk.iml" />

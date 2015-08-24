@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="annotations">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/planetxoauthandroidsdk/libs/annotations.jar!/" />
+      <root url="jar://$PROJECT_DIR$/planetxopenapiandroidsdk/libs/annotations.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
