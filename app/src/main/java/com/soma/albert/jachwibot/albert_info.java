@@ -9,6 +9,7 @@ import kr.robomation.physical.Albert;
 /**
  * Created by josh on 15. 8. 23..
  */
+/*
 public class Albert_info extends RobotActivity {
 
     private Device mBatteryDevice;
@@ -28,3 +29,4 @@ public class Albert_info extends RobotActivity {
     }
 
 }
+*/

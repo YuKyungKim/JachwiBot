@@ -17,7 +17,9 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.skp.openplatform.android.sdk.api.APIRequest;
 import com.skp.openplatform.android.sdk.common.PlanetXSDKConstants;
@@ -63,6 +65,20 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
     Handler msgHandler;
     // TODO 예보 따로 따오기..
 
+    // setting panel
+    GridView settingGridView;
+    private Device mBatteryDevice;
+    private ArrayList<SettingComponent> settingList = new ArrayList();
+    private boolean isConnectedWithAlbert;
+    int[] imageID = new int[4];
+    String[] text = {
+            "", // 알버트 연결 상태
+            "", // 알버트 배터리 상태
+            "날씨 알림", // 날씨 읽어주기 enable
+            "일정 알림", // 일정 읽어주기 enable
+    };
+    int battery = 0;
+
     // 집안일 패널과 알람 패널
     GridView houseworkGridView, alarmGridView;
     private ArrayList<HouseworkComponent> houseCompList = new ArrayList();
@@ -86,11 +102,17 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
     private static final int ALARM_REQUEST = 10;
     private Robot_Alarm robot_alarm;
 
+    final Handler handler = new Handler();
+
+    private int count = 0;
+
     @Override
     public void onInitialized(Robot robot) {
+        mBatteryDevice = robot.findDeviceById(Albert.SENSOR_BATTERY);
         mSpeakerDevice = robot.findDeviceById(Albert.EFFECTOR_SPEAKER);
         robot_alarm = new Robot_Alarm(robot);
         robot_alarm.setCallBackEvent(callBackEvent);
+        robot.addDeviceDataChangedListener(this);
     }
 
     private Robot_Alarm.CallBackEvent callBackEvent = new Robot_Alarm.CallBackEvent(){
@@ -117,23 +139,36 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         setContentView(R.layout.activity_main);
         super.onCreate(savedInstanceState);
 
-        //get Context to CalendarAlarm
-        calendaralarm = new CalendarAlarm(this);
-
         setTitle("자취봇");
 
-        //get Context to Decoder
-        decoder = new Decoder_pcm(this);
-        //get Context to Decoder
-        conversation = new Conversation(this);
-
-        alarmcommute = new AlarmCommunication(this);
-
+        // weather panel
         currentTempText = (TextView) findViewById(R.id.curtemptext);
         maxMinTempText = (TextView) findViewById(R.id.maxMinTempText);
         weatherIcon = (ImageView) findViewById(R.id.weatherImageIcon);
         weatherText = (TextView) findViewById(R.id.weatherText);
         isRain = (ImageView) findViewById(R.id.unbrellaIcon);
+
+        // gps lat, lon data communicate
+        gps = new GpsInfo(MainActivity.this);
+        lat = gps.getLatitude();
+        lon = gps.getLongitude();
+
+        //commWithOpenAPIServer();
+        //weather();
+
+        //get Context to CalendarAlarm
+        calendaralarm = new CalendarAlarm(this);
+
+        //get Context to Decoder
+        decoder = new Decoder_pcm(this);
+        //get Context to Decoder
+        conversation = new Conversation(this);
+        alarmcommute = new AlarmCommunication(this);
+
+        // setting panel
+        settingGridView = (GridView) findViewById(R.id.settingGridView);
+
+        albertCondition();
 
         // bottom panel
         // albert connect button
@@ -142,6 +177,49 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         // 알버트랑 대화하기
         Button conversationBtn = (Button) findViewById(R.id.conversationBtn);
         conversationBtn.setOnClickListener(this);
+    }
+
+    void albertCondition() {
+        Log.i("isConnect", ""+isConnectedWithAlbert);
+        if(isConnectedWithAlbert) {
+            imageID[0] = R.drawable.albert_color;
+            text[0] = "연결 됨";
+        } else {
+            imageID[0] = R.drawable.albert_bw;
+            text[0] = "연결 안 됨";
+        }
+
+        if(mBatteryDevice != null) {
+            battery = mBatteryDevice.read();
+        }
+        imageID[1] = R.drawable.battery;
+        text[1] = ""+battery+"%";
+
+        imageID[2] = R.drawable.weather;
+        imageID[3] = R.drawable.calendar;
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                SettingGridAdapter settingGridAdapter = new SettingGridAdapter(MainActivity.this, imageID, text);
+                settingGridView.setAdapter(settingGridAdapter);
+                settingGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        switch (position) {
+                            case 0:
+                                Intent serviceIntent = new Intent(view.getContext(), LauncherService.class);
+                                startService(serviceIntent);
+                                break;
+                            case 2:
+                                
+                                break;
+                            case 3:
+                                break;
+                        }
+                    }
+                });
+            }
+        });
     }
 
     @Override
@@ -172,16 +250,7 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         // db
         final DBManager dbManager = new DBManager(getApplicationContext(), "jachwibot.db", null, 1);
 
-        // gps lat, lon data communicate
-        gps = new GpsInfo(MainActivity.this);
-        lat = gps.getLatitude();
-        lon = gps.getLongitude();
-        //Log.i("gps", ""+lat+", "+lon);
-
-        //commWithOpenAPIServer();
-
-        // weather panel
-        //weather();
+        // setting panel
 
         // housework panel
         houseworkGridView = (GridView) findViewById(R.id.houseworkGridView);
@@ -190,22 +259,9 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         // db data call - housework
         ArrayList<HouseworkComponent> houseworkList = dbManager.selectAllHoseworkData();
         houseCompList.clear();
-        for (int i = 0; i < houseworkList.size(); i++) {
+        for(int i = 0; i < houseworkList.size(); i++) {
             houseCompList.add(houseworkList.get(i));
         }
-
-
-        // alarm panel
-        alarmGridView = (GridView) findViewById(R.id.alarmGridView);
-        final AlarmGridAdapter alarmGridAdapter = new AlarmGridAdapter();
-        alarmGridView.setAdapter(alarmGridAdapter);
-        // db data call - alarm
-        ArrayList<AlarmComponent> alarmList = dbManager.selectAllAlarmData();
-        alarmCompList.clear();
-        for (int i = 0; i < alarmList.size(); i++) {
-            alarmCompList.add(alarmList.get(i));
-        }
-
 
         // 추가 버튼
         HouseworkComponent plus = new HouseworkComponent(0, 0, null);
@@ -213,7 +269,7 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         houseworkGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getLastVisiblePosition() == position) {
+                if(parent.getLastVisiblePosition() == position) {
                     Intent intent = new Intent(view.getContext(), HouseworkActivity.class);
                     startActivityForResult(intent, 0);
                 } else {
@@ -231,13 +287,24 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
             }
         });
 
+        // alarm panel
+        alarmGridView = (GridView) findViewById(R.id.alarmGridView);
+        final AlarmGridAdapter alarmGridAdapter = new AlarmGridAdapter();
+        alarmGridView.setAdapter(alarmGridAdapter);
+        // db data call - alarm
+        ArrayList<AlarmComponent> alarmList = dbManager.selectAllAlarmData();
+        alarmCompList.clear();
+        for (int i = 0; i < alarmList.size(); i++) {
+            alarmCompList.add(alarmList.get(i));
+        }
+
         // 추가 버튼
         AlarmComponent plusAlarm = new AlarmComponent(-1, null, null, null, 0, 0);
         alarmCompList.add(plusAlarm);
         alarmGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getLastVisiblePosition() == position) {
+                if(parent.getLastVisiblePosition() == position) {
                     Intent intent = new Intent(view.getContext(), AlarmActivity.class);
                     intent.putExtra("Class", view.getContext().getClass());
                     startActivityForResult(intent, ALARM_REQUEST);
@@ -254,10 +321,17 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
                 }
             }
         });
-
-
     }
 
+    @Override
+    public void onExecute() {
+        if(count++ == 50) {
+            albertCondition();
+            isConnectedWithAlbert = false;
+            battery = 0;
+            count = 0;
+        }
+    }
 
     @Override
     public void onClick(View v) {
@@ -277,6 +351,19 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
                 break;
             case R.id.conversationBtn:
                 conversation.start(mSpeakerDevice);
+                break;
+        }
+    }
+
+    @Override
+    public void onDeviceDataChanged(Device device, Object values, long timestamp) {
+        switch(device.getId()) {
+            case Albert.SENSOR_ACCELERATION:
+                isConnectedWithAlbert = true;
+                imageID[0] = R.drawable.albert_color;
+                text[0] = "연결 됨";
+                battery = mBatteryDevice.read();
+                text[1] = ""+battery+"%";
                 break;
         }
     }
@@ -324,6 +411,45 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         return ab.create();
     }
 
+    public class SettingGridAdapter extends BaseAdapter {
+        private Context context;
+        private int[] imageId;
+        private String[] text;
+
+        public SettingGridAdapter(Context c, int[] imageId, String[] text) {
+            context = c;
+            this.imageId = imageId;
+            this.text = text;
+        }
+
+        @Override
+        public int getCount() { return text.length; }
+
+        @Override
+        public Object getItem(int position) { return null; }
+
+        @Override
+        public long getItemId(int position) { return 0; }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View grid;
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            if(convertView == null) {
+                grid = new View(context);
+                grid = inflater.inflate(R.layout.setting_component, null);
+                ImageView imageView = (ImageView) grid.findViewById(R.id.settingCmpIcon);
+                TextView textView = (TextView) grid.findViewById(R.id.settingCmpText);
+                imageView.setImageResource(imageId[position]);
+                textView.setText(text[position]);
+            } else {
+                grid = (View) convertView;
+            }
+
+            return grid;
+        }
+    }
+
     public class HouseworkGridAdapter extends BaseAdapter {
         LayoutInflater inflater;
 
@@ -348,7 +474,7 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
+            if(convertView == null) {
                 convertView = inflater.inflate(R.layout.housework_component, parent, false);
             }
 
@@ -357,13 +483,16 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
 
             HouseworkComponent cmp = houseCompList.get(position);
 
-            if (cmp.getHouseworkType() == 1) {
+            if(cmp.getHouseworkType() == 1) {
                 cmpIcon.setImageResource(R.drawable.trash);
                 cmpText.setText(calcDay(cmp.getLastDay()));
-            } else if (cmp.getHouseworkType() == 2) {
+            } else if(cmp.getHouseworkType() == 2) {
                 cmpIcon.setImageResource(R.drawable.washing_machine);
                 cmpText.setText(calcDay(cmp.getLastDay()));
-            } else if (cmp.getHouseworkType() == 0) {
+            } else if(cmp.getHouseworkType() == 3) {
+                cmpIcon.setImageResource(R.drawable.shoppingcart);
+                cmpText.setText(calcDay(cmp.getLastDay()));
+            } else if(cmp.getHouseworkType() == 0) {
                 cmpIcon.setImageResource(R.drawable.plus);
                 cmpText.setText("추가");
             }
@@ -437,9 +566,9 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
 
         long gap = (delta / 86400000);
 
-        if (gap == 0) {
+        if(gap == 0) {
             return "오늘";
-        } else if (gap == 1) {
+        } else if(gap == 1) {
             return "어제";
         } else {
             return "" + gap + "일 전";
@@ -504,7 +633,7 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
                     // 0: 현상없음, 1: 비, 2: 비/눈, 3: 눈
                     JSONObject precipitation = (JSONObject) minutely1.get("precipitation");
                     precipType = (String) precipitation.get("type");
-                    if (precipType.equals("1") || precipType.equals("2") || precipType.equals("3")) {
+                    if(precipType.equals("1") || precipType.equals("2") || precipType.equals("3")) {
                         isRain.setImageResource(R.drawable.umbrella);
                     }
                     // 기온정보
