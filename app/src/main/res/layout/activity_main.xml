@@ -4,13 +4,11 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/weatherPanel">
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
@@ -18,7 +16,6 @@
             android:layout_marginRight="15dp"
             android:layout_marginLeft="10dp"
             android:layout_weight="4">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -28,7 +25,6 @@
                 android:layout_alignParentStart="true"
                 android:textSize="33dp"
                 android:textIsSelectable="false" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -38,13 +34,11 @@
                 android:layout_alignParentStart="true"
                 android:textSize="15dp" />
         </LinearLayout>
-
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="25dp">
-
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
@@ -53,7 +47,6 @@
                 android:layout_centerHorizontal="true"
                 android:adjustViewBounds="true"
                 android:layout_gravity="bottom" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -62,7 +55,6 @@
                 android:text="날씨정보"
                 android:layout_gravity="center_horizontal" />
         </LinearLayout>
-
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -74,20 +66,36 @@
             android:layout_marginTop="0dp"
             android:layout_marginRight="0dp"
             android:layout_marginBottom="0dp" />
-
     </LinearLayout>
-
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/line4"
+        android:layout_alignParentStart="true"
+        android:background="#000"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@+id/weatherPanel" />
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:id="@+id/settingGridView"
+        android:columnWidth="70dp"
+        android:gravity="center"
+        android:numColumns="auto_fit"
+        android:stretchMode="columnWidth"
+        android:drawSelectorOnTop="true"
+        android:layout_below="@+id/line4"
+        android:scrollbars = "horizontal"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:id="@+id/line1"
-        android:layout_below="@+id/weatherPanel"
         android:layout_alignParentStart="true"
         android:background="#000"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp" />
-
+        android:layout_marginBottom="5dp"
+        android:layout_below="@+id/settingGridView" />
     <GridView
         android:layout_width="match_parent"
         android:layout_height="90dp"
@@ -97,8 +105,8 @@
         android:numColumns="auto_fit"
         android:stretchMode="columnWidth"
         android:drawSelectorOnTop="true"
-        android:layout_below="@+id/line1"/>
-
+        android:layout_below="@+id/line1"
+        android:scrollbars="horizontal"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -108,7 +116,6 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_below="@+id/houseworkGridView" />
-
     <GridView
         android:layout_width="match_parent"
         android:layout_height="170dp"
@@ -122,7 +129,6 @@
         android:layout_alignParentEnd="false"
         android:layout_alignParentStart="true"
         android:layout_above="@+id/line3" />
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -132,7 +138,6 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_above="@+id/bottomPanel" />
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
@@ -141,7 +146,6 @@
         android:layout_alignParentStart="false"
         android:layout_alignParentEnd="false"
         android:layout_alignParentBottom="true">
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -149,7 +153,6 @@
             android:id="@+id/albertConnectBtn"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true" />
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -157,7 +160,6 @@
             android:id="@+id/conversationBtn"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true" />
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -165,7 +167,6 @@
             android:id="@+id/Alarm_set"
             android:layout_alignBottom="@+id/albertConnectBtn"
             android:layout_toEndOf="@+id/albertConnectBtn" />
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -174,5 +175,4 @@
             android:layout_alignBottom="@+id/Alarm_set"
             android:layout_toEndOf="@+id/Alarm_set" />
     </LinearLayout>
-
 </RelativeLayout>
