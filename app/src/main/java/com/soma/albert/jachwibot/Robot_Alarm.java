@@ -21,7 +21,7 @@ public class Robot_Alarm implements Runnable {
     private boolean Alram_Start_Flag = false;
 
     public interface CallBackEvent {
-        void Robot_Alram_Stop();
+        void Robot_Alarm_Stop();
     }
 
     public Robot_Alarm(Robot robot) {
@@ -111,7 +111,7 @@ public class Robot_Alarm implements Runnable {
                 RightEye.write(new int[]{0, 0, 0});
                 set_Alram_status(false);
                 if (callBackEvent != null) {
-                    callBackEvent.Robot_Alram_Stop();
+                    callBackEvent.Robot_Alarm_Stop();
                 }
             }
 
