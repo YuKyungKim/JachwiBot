@@ -1,5 +1,8 @@
 package com.soma.albert.jachwibot;
 
+import java.util.Calendar;
+import java.util.StringTokenizer;
+
 /**
  * Created by whee6409 on 15. 8. 14.
  */
@@ -51,5 +54,34 @@ public class HouseworkComponent {
                 ", houseworkType=" + houseworkType +
                 ", lastDay='" + lastDay + '\'' +
                 '}';
+    }
+
+    public static String CalcDay(String lastDate) {
+        Calendar todayCal = Calendar.getInstance();
+        Calendar lastdayCal = Calendar.getInstance();
+
+        StringTokenizer strTk = new StringTokenizer(lastDate, ".");
+        int lastYear = Integer.parseInt(strTk.nextToken());
+        int lastMonth = Integer.parseInt(strTk.nextToken());
+        int lastDay = Integer.parseInt(strTk.nextToken());
+
+        lastdayCal.set(lastYear, lastMonth - 1, lastDay);
+
+        long delta = todayCal.getTimeInMillis() - lastdayCal.getTimeInMillis();
+
+        lastdayCal.setTimeInMillis(delta);
+
+        int date = lastdayCal.get(Calendar.DAY_OF_YEAR) + 1;
+
+        long gap = (delta / 86400000);
+
+        if(gap == 0) {
+            return "오늘";
+        } else if(gap == 1) {
+            return "어제";
+        } else {
+            return "" + gap + "일 전";
+        }
+
     }
 }

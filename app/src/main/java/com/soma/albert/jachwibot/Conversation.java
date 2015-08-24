@@ -58,7 +58,7 @@ public class Conversation  extends RobotActivity {
                     simsimiAPI = new SimsimiAPI(results[0]);//stt list 중 제일 높은 결과 값을 simsimi로 보냄
                     simsimiAPI.execute();
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(200);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -73,7 +73,7 @@ public class Conversation  extends RobotActivity {
                             Get_Google_Voice get_google_voice = new Get_Google_Voice();
                             get_google_voice.execute(simsimi_response);
                             try {
-                                Thread.sleep(500);
+                                Thread.sleep(1000);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }

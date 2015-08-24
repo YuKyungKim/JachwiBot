@@ -1,5 +1,7 @@
 package com.soma.albert.jachwibot;
 
+import android.app.AlertDialog;
+
 import org.roboid.robot.Device;
 import org.roboid.robot.Robot;
 import java.util.Random;
@@ -17,11 +19,13 @@ public class Robot_Alarm implements Runnable {
     private Device RightWheel, LeftWheel;
     private Device RightEye, LeftEye;
     private Device Acceleration;
+    private Device Buzzer;
 
     private boolean Alram_Start_Flag = false;
+    private int alarm_type;
 
     public interface CallBackEvent {
-        void Robot_Alarm_Stop();
+        void Robot_Alarm_Stop(int Alarm_type);
     }
 
     public Robot_Alarm(Robot robot) {
@@ -32,16 +36,18 @@ public class Robot_Alarm implements Runnable {
         LeftWheel = robot.findDeviceById(Albert.EFFECTOR_LEFT_WHEEL);
         RightEye = robot.findDeviceById(Albert.EFFECTOR_RIGHT_EYE);
         LeftEye = robot.findDeviceById(Albert.EFFECTOR_LEFT_EYE);
+        Buzzer = robot.findDeviceById(Albert.EFFECTOR_BUZZER);
     }
 
     public void setCallBackEvent(CallBackEvent callback) {
         callBackEvent = callback;
     }
 
-    public void set_Alram_status(boolean status) {
+    public void set_Alram_status(boolean status, int alarm_type) {
         if (main_thread == null || main_thread.getState() == Thread.State.TERMINATED) {
             main_thread = new Thread(this);
             main_thread.start();
+            this.alarm_type = alarm_type;
         }
         Alram_Start_Flag = status;
     }
@@ -102,16 +108,18 @@ public class Robot_Alarm implements Runnable {
             }
             LeftEye.write(leftEye_value);
             RightEye.write(rightEye_value);
+            Buzzer.write(leftEye_value[0] + leftEye_value[1] + leftEye_value[2]);
 
             //넘어짐 감지
             if (accelerationZ > 0) {
                 LeftWheel.write(0);
                 RightWheel.write(0);
+                Buzzer.write(0);
                 LeftEye.write(new int[]{0, 0, 0});
                 RightEye.write(new int[]{0, 0, 0});
-                set_Alram_status(false);
+                set_Alram_status(false, alarm_type);
                 if (callBackEvent != null) {
-                    callBackEvent.Robot_Alarm_Stop();
+                    callBackEvent.Robot_Alarm_Stop(alarm_type);
                 }
             }
 
