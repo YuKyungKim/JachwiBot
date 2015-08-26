@@ -2,32 +2,53 @@
 <items version="2" >
 
     <item
-        jar="/home/whee6409/AndroidStudioProjects/JachwiBot/planetxoauthandroidsdk/build/libs/planetxoauthandroidsdk.jar"
+        jar="C:\Users\wlsdn\AndroidStudioProjects\JachwiBot\planetxopenapiandroidsdk\build\libs\planetxopenapiandroidsdk.jar"
         jumboMode="false"
-        revision="19.1.0"
-        sha1="b40cc14cede79eb2e2b5c7ec1e0139f8bbb33e58">
-        <dex dex="/home/whee6409/AndroidStudioProjects/JachwiBot/planetxsampleandroid/build/intermediates/pre-dexed/debug/planetxoauthandroidsdk-821cf359b99e8dd4c8663f7de7943d421425bde8.jar" />
+        revision="22.0.1"
+        sha1="22f97493f06f4972d0e0ece64d6d6eaca69e75a2">
+        <dex dex="C:\Users\wlsdn\AndroidStudioProjects\JachwiBot\app\build\intermediates\pre-dexed\debug\planetxopenapiandroidsdk-ddd359404ab88f89b80640727148c034f5a22440.jar" />
     </item>
     <item
-        jar="/home/whee6409/AndroidStudioProjects/JachwiBot/planetxopenapiandroidsdk/build/libs/planetxopenapiandroidsdk.jar"
+        jar="C:\Users\wlsdn\AndroidStudioProjects\JachwiBot\app\libs\json_simple-1.1.jar"
         jumboMode="false"
-        revision="19.1.0"
-        sha1="a582d3077f115ed433dd16f64aa5ef4e7c481f71">
-        <dex dex="/home/whee6409/AndroidStudioProjects/JachwiBot/planetxsampleandroid/build/intermediates/pre-dexed/debug/planetxopenapiandroidsdk-88fcd64905ed2f866a04df95a7d3d0f9b4e03d4b.jar" />
+        revision="22.0.1"
+        sha1="5e303a03d04e6788dddfa3655272580ae0fc13bb">
+        <dex dex="C:\Users\wlsdn\AndroidStudioProjects\JachwiBot\app\build\intermediates\pre-dexed\debug\json_simple-1.1-29e13e7ed8bea6636168e02d71fab7887383f069.jar" />
     </item>
     <item
-        jar="/home/whee6409/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/1.3.9/40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf/jsr305-1.3.9.jar"
+        jar="C:\Users\wlsdn\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\1.3.9\40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf\jsr305-1.3.9.jar"
         jumboMode="false"
-        revision="19.1.0"
+        revision="22.0.1"
         sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf">
-        <dex dex="/home/whee6409/AndroidStudioProjects/JachwiBot/planetxsampleandroid/build/intermediates/pre-dexed/debug/jsr305-1.3.9-2509fab150a6fbc8829217527c748e430def3263.jar" />
+        <dex dex="C:\Users\wlsdn\AndroidStudioProjects\JachwiBot\app\build\intermediates\pre-dexed\debug\jsr305-1.3.9-48b711bd5a41a2b41a2ba6ee9494202d78f2db17.jar" />
     </item>
     <item
-        jar="/home/whee6409/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/11.0.1/57b40a943725d43610c898ac0169adf1b2d55742/guava-11.0.1.jar"
+        jar="C:\Users\wlsdn\.gradle\caches\modules-2\files-2.1\com.google.guava\guava\11.0.1\57b40a943725d43610c898ac0169adf1b2d55742\guava-11.0.1.jar"
         jumboMode="false"
-        revision="19.1.0"
+        revision="22.0.1"
         sha1="57b40a943725d43610c898ac0169adf1b2d55742">
-        <dex dex="/home/whee6409/AndroidStudioProjects/JachwiBot/planetxsampleandroid/build/intermediates/pre-dexed/debug/guava-11.0.1-cdb55b523151dcf30367789468de3341294ce513.jar" />
+        <dex dex="C:\Users\wlsdn\AndroidStudioProjects\JachwiBot\app\build\intermediates\pre-dexed\debug\guava-11.0.1-a96e90baf84547c0a78263c61442c02fd89c4f3a.jar" />
+    </item>
+    <item
+        jar="C:\Users\wlsdn\AndroidStudioProjects\JachwiBot\app\jl1.0.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="33c346fe3c5f75dfbfb477e1f3d8446427633890">
+        <dex dex="C:\Users\wlsdn\AndroidStudioProjects\JachwiBot\app\build\intermediates\pre-dexed\debug\jl1.0.1-7c9eb838e9b6a4e3d017488a8f59331e8969294e.jar" />
+    </item>
+    <item
+        jar="C:\Users\wlsdn\AndroidStudioProjects\JachwiBot\planetxoauthandroidsdk\build\libs\planetxoauthandroidsdk.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="612f52685a67202e5d6cd62241f5515aff6beba8">
+        <dex dex="C:\Users\wlsdn\AndroidStudioProjects\JachwiBot\app\build\intermediates\pre-dexed\debug\planetxoauthandroidsdk-8798b9bef28a9c2c8fa6c31ecb1d749ebf90d2d1.jar" />
+    </item>
+    <item
+        jar="C:\Users\wlsdn\AndroidStudioProjects\JachwiBot\app\build\intermediates\exploded-aar\JachwiBot\orgsmartrobotandroid8140\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="7f0ad85af98adf79de4be055b93241db8c8ab0ad">
+        <dex dex="C:\Users\wlsdn\AndroidStudioProjects\JachwiBot\app\build\intermediates\pre-dexed\debug\classes-1f49f051e6ffbf7d8c78dd6339d7dc49af17cbc3.jar" />
     </item>
 
 </items>
