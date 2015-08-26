@@ -57,51 +57,53 @@ public class Weather {
     public void findWeather(Context context) {
         // gps lat, lon data communicate
         gps = new GpsInfo(context);
-        lat = gps.getLatitude();
-        lon = gps.getLongitude();
+        Log.i("gps", ""+gps.isGPSEnabled);
+        if(gps.isGPSEnabled) {
+            lat = gps.getLatitude();
+            lon = gps.getLongitude();
+            commWithOpenAPIServer();
 
-        commWithOpenAPIServer();
+            msgHandler = new Handler() {
+                public void dispatchMessage(Message msg) {
 
-        msgHandler = new Handler() {
-            public void dispatchMessage(Message msg) {
-
-                try {
-                    JSONParser jsonParser = new JSONParser();
-                    JSONObject data = (JSONObject) jsonParser.parse(hndResult);
-                    JSONObject weather = (JSONObject) data.get("weather");
-                    //Log.i("weather", ""+weather);
-                    JSONArray minutely = (JSONArray) weather.get("minutely");
-                    //Log.i("minutely", ""+minutely);
-                    JSONObject minutely1 = (JSONObject) minutely.get(0);
-                    Log.i("minutely1", ""+minutely);
-                    // 강수정보
-                    // 0: 현상없음, 1: 비, 2: 비/눈, 3: 눈
-                    JSONObject precipitation = (JSONObject) minutely1.get("precipitation");
-                    precipType = (String) precipitation.get("type");
-                    if(precipType.equals("1") || precipType.equals("2") || precipType.equals("3")) {
-                        isRain.setImageResource(R.drawable.umbrella);
+                    try {
+                        JSONParser jsonParser = new JSONParser();
+                        JSONObject data = (JSONObject) jsonParser.parse(hndResult);
+                        JSONObject weather = (JSONObject) data.get("weather");
+                        //Log.i("weather", ""+weather);
+                        JSONArray minutely = (JSONArray) weather.get("minutely");
+                        //Log.i("minutely", ""+minutely);
+                        JSONObject minutely1 = (JSONObject) minutely.get(0);
+                        Log.i("minutely1", ""+minutely);
+                        // 강수정보
+                        // 0: 현상없음, 1: 비, 2: 비/눈, 3: 눈
+                        JSONObject precipitation = (JSONObject) minutely1.get("precipitation");
+                        precipType = (String) precipitation.get("type");
+                        if(precipType.equals("1") || precipType.equals("2") || precipType.equals("3")) {
+                            isRain.setImageResource(R.drawable.umbrella);
+                        }
+                        // 기온정보
+                        JSONObject temperature = (JSONObject) minutely1.get("temperature");
+                        //Log.i("temperature", "" + temperature);
+                        tmax = (String) temperature.get("tmax");
+                        tmin = (String) temperature.get("tmin");
+                        tcurent = (String) temperature.get("tc");
+                        // 하늘상태정보
+                        JSONObject sky = (JSONObject) minutely1.get("sky");
+                        //Log.i("sky", ""+sky);
+                        skyName = (String) sky.get("name");
+                        skyCode = (String) sky.get("code");
+                    } catch (ParseException e) {
+                        e.printStackTrace();
                     }
-                    // 기온정보
-                    JSONObject temperature = (JSONObject) minutely1.get("temperature");
-                    //Log.i("temperature", "" + temperature);
-                    tmax = (String) temperature.get("tmax");
-                    tmin = (String) temperature.get("tmin");
-                    tcurent = (String) temperature.get("tc");
-                    // 하늘상태정보
-                    JSONObject sky = (JSONObject) minutely1.get("sky");
-                    //Log.i("sky", ""+sky);
-                    skyName = (String) sky.get("name");
-                    skyCode = (String) sky.get("code");
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
 
-                currentTempText.setText("" + tcurent + "℃");
-                maxMinTempText.setText("최고" + tmax.substring(0, 2) + "℃/최저" + tmin.substring(0, 2) + "℃");
-                weatherText.setText("" + skyName);
-                skyIconMatch(skyCode);
-            }
-        };
+                    currentTempText.setText("" + tcurent + "℃");
+                    maxMinTempText.setText("최고" + tmax.substring(0, 2) + "℃/최저" + tmin.substring(0, 2) + "℃");
+                    weatherText.setText("" + skyName);
+                    skyIconMatch(skyCode);
+                }
+            };
+        }
     }
 
     public String readMessage() {

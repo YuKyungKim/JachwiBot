@@ -23,9 +23,10 @@ public class Robot_Alarm implements Runnable {
 
     private boolean Alram_Start_Flag = false;
     private int alarm_type;
+    private String alarm_name;
 
     public interface CallBackEvent {
-        void Robot_Alarm_Stop(int Alarm_type);
+        void Robot_Alarm_Stop(int Alarm_type, String Alarm_name);
     }
 
     public Robot_Alarm(Robot robot) {
@@ -43,7 +44,7 @@ public class Robot_Alarm implements Runnable {
         callBackEvent = callback;
     }
 
-    public void set_Alram_status(boolean status, int alarm_type) {
+    public void set_Alram_status(boolean status, int alarm_type, String alarm_name) {
         if (main_thread == null || main_thread.getState() == Thread.State.TERMINATED) {
             main_thread = new Thread(this);
             main_thread.start();
@@ -117,9 +118,9 @@ public class Robot_Alarm implements Runnable {
                 Buzzer.write(0);
                 LeftEye.write(new int[]{0, 0, 0});
                 RightEye.write(new int[]{0, 0, 0});
-                set_Alram_status(false, alarm_type);
+                set_Alram_status(false, alarm_type, alarm_name);
                 if (callBackEvent != null) {
-                    callBackEvent.Robot_Alarm_Stop(alarm_type);
+                    callBackEvent.Robot_Alarm_Stop(alarm_type, alarm_name);
                 }
             }
 

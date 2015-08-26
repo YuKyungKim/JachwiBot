@@ -72,10 +72,10 @@ public class Conversation  extends RobotActivity {
                             /////////////google에 tts request를 보내는 부분///////////
                             Get_Google_Voice get_google_voice = new Get_Google_Voice();
                             get_google_voice.execute(simsimi_response);
-                            try {
-                                Thread.sleep(1000);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
+                            while(true){
+                                if (get_google_voice.check()==true){
+                                    break;
+                                }
                             }
                             ByteArrayOutputStream sample = get_google_voice.get_result();
                             /////////////////////////////////////////////////////

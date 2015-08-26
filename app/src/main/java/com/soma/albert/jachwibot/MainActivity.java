@@ -48,6 +48,7 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
 
     Activity act = this;
 
+    // weather panel
     Weather weather = new Weather();
 
     // setting panel
@@ -101,10 +102,10 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
 
     private Robot_Alarm.CallBackEvent callBackEvent = new Robot_Alarm.CallBackEvent(){
         @Override
-        public void Robot_Alarm_Stop(int alarm_type) {
+        public void Robot_Alarm_Stop(int alarm_type, String alarm_name) {
             Log.d("Robot_Alarm", "stop");
 
-            if (alarm_type != 0) {
+            if (alarm_type == 0) {
                 String result = "";
                 if (readCalendar) {
                     result += calendaralarm.get_first_schedule();
@@ -117,15 +118,24 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
                 }
                 Get_Google_Voice get_google_voice = new Get_Google_Voice();
                 get_google_voice.execute(result);
-
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-
+                while(true){
+                    if (get_google_voice.check()==true){
+                        break;
+                    }
                 }
+
                 robotspeaker = new RobotSpeaker(mSpeakerDevice);
                 robotspeaker.start(get_google_voice.get_result());
+            } else if(alarm_type != 0) {
+                String alarmName = "";
+                alarmName = alarm_name;
+                Get_Google_Voice get_google_voice = new Get_Google_Voice();
+                get_google_voice.execute(alarmName);
+                while(true){
+                    if (get_google_voice.check()==true){
+                        break;
+                    }
+                }
             }
         }
     };
@@ -135,10 +145,6 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
 
         setTitle("자취봇");
-
-        // weather
-
-        weather.findWeather(this);
 
         // weather panel
         weather.currentTempText = (TextView) findViewById(R.id.curtemptext);
@@ -241,7 +247,7 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
                 " alarm_name = " + intent.getStringExtra("alarm_name") +
                 " isRepeat = " + String.valueOf(intent.getBooleanExtra("isRepeat", false)));
         if(robot_alarm != null){
-            robot_alarm.set_Alram_status(true, intent.getIntExtra("alarm_type", -1));
+            robot_alarm.set_Alram_status(true, intent.getIntExtra("alarm_type", -1), intent.getStringExtra("alarm_name"));
         }
     }
 
@@ -251,7 +257,8 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         // db
         final DBManager dbManager = new DBManager(getApplicationContext(), "jachwibot.db", null, 1);
 
-        // setting panel
+        // weather panel
+        weather.findWeather(this);
 
         // housework panel
         houseworkGridView = (GridView) findViewById(R.id.houseworkGridView);

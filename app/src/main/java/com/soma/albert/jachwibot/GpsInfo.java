@@ -101,7 +101,7 @@ public class GpsInfo extends Service implements LocationListener {
     public void showSettingsAlert() {
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(mcontext);
         alertDialog.setTitle("GPS 사용유무셋팅");
-        alertDialog.setMessage("GPS 셋팅이 되지 않았을수도 있습니다.\n설정창으로 가시겠습니까?");
+        alertDialog.setMessage("날씨를 알기 위해서는 GPS 셋팅이 필요합니다.\n지금은 GPS 셋팅이 되지 않았을수도 있습니다.\n설정창으로 가시겠습니까?");
         alertDialog.setPositiveButton("Settings", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

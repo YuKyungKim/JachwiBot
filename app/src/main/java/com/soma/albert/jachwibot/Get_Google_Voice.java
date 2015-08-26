@@ -18,10 +18,11 @@ import java.net.URLEncoder;
 public class Get_Google_Voice extends AsyncTask<String, ByteArrayOutputStream, ByteArrayOutputStream> {
     public ByteArrayOutputStream result_voice;
     private String response;
+    boolean checker=false;
 
     // process background work
     protected ByteArrayOutputStream doInBackground(String... params) {
-
+        checker=false;
         this.response = params[0];
         return makeHttpRequest();
 
@@ -99,6 +100,7 @@ public class Get_Google_Voice extends AsyncTask<String, ByteArrayOutputStream, B
         System.out.println("Done");
         // consists of JSON Format.
         result_voice=bufOut;
+        checker=true;
         return bufOut;
 
     } // end of makeHttpRequest method
@@ -110,6 +112,9 @@ public class Get_Google_Voice extends AsyncTask<String, ByteArrayOutputStream, B
      * doInBackground method is transmitted to onPostExecute's parameter
      */
     protected void onPostExecute(ByteArrayOutputStream bufOut) {
-        result_voice=bufOut;
+        result_voice=bufOut;checker=true;
+    }
+    public boolean check(){
+        return checker;
     }
 }
