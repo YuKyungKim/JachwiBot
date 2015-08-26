@@ -36,13 +36,10 @@ import org.roboid.robot.Device;
 import org.roboid.robot.Robot;
 import org.smartrobot.android.RobotActivity;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.SimpleTimeZone;
 import java.util.StringTokenizer;
 
 import kr.robomation.physical.Albert;
@@ -302,37 +299,18 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
             alarmCompList.add(alarmList.get(i));
         }
 
-
         // 추가 버튼
         AlarmComponent plusAlarm = new AlarmComponent(-1, null, null, null, 0, 0);
         alarmCompList.add(plusAlarm);
         alarmGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getLastVisiblePosition() == position) {
-                    //추가 버튼 클릭
+                if(parent.getLastVisiblePosition() == position) {
                     Intent intent = new Intent(view.getContext(), AlarmActivity.class);
                     intent.putExtra("Class", view.getContext().getClass());
                     startActivityForResult(intent, ALARM_REQUEST);
                 } else {
-                    //삭제
-                    String Message = String.valueOf(alarmCompList.get(position).getHour()) + "시 " +
-                    String.valueOf(alarmCompList.get(position).getMin()) + "분 ";
-                    if(alarmCompList.get(position).getisRepeat()) {
-                        Message += "\n";
-
-                        String Week_str[] = {"false", "일", "월", "화", "수", "목", "금", "토"};
-                        String Week[] = alarmCompList.get(position).getWeek().split("/");
-                        String temp_msg = "/";
-                        for(int i = 1; i < Week.length; i++) {
-                            if(Week[i].equals("true")){
-                                temp_msg += ", " + Week_str[i];
-                            }
-                        }
-                        Message += temp_msg.replace("/,", "");
-                        Message += String.valueOf("요일에 반복");
-                    }
-                    dialog = createInflaterDialogAlarm(dbManager, alarmCompList.get(position).getAlarmtype(), position, Message);
+                    dialog = createInflaterDialogAlarm(dbManager, alarmCompList.get(position).getAlarmtype(), position);
                     dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                         @Override
                         public void onDismiss(DialogInterface dialog) {
@@ -344,7 +322,6 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
                 }
             }
         });
-
     }
 
     @Override
@@ -405,11 +382,8 @@ public class MainActivity extends RobotActivity implements View.OnClickListener 
         });
         return ab.create();
     }
-    private AlertDialog createInflaterDialogAlarm(final DBManager dbManager, final int alarmtype, final int position, String Message) {
+    private AlertDialog createInflaterDialogAlarm(final DBManager dbManager, final int alarmtype, final int position) {
         final View innerView1 = getLayoutInflater().inflate(R.layout.dialog, null);
-        TextView textView = (TextView)innerView1.findViewById(R.id.msg);
-        textView.setText(Message);
-
         AlertDialog.Builder ab = new AlertDialog.Builder(this);
         ab.setTitle("삭제 확인");
         ab.setView(innerView1);
